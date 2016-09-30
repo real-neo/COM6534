@@ -1,0 +1,83 @@
+@import 'bootstrap/mixins'
+@import 'base/variables'
+
+.form-horizontal .control-label
+  text-align: left !important
+
+label.control-label
+  display: block
+  font-weight: 600
+  
+  &.radio_buttons, &.check_boxes
+    margin-bottom: 0
+  &.inline_radio_buttons, &.inline_check_boxes
+    display: block
+    margin-bottom: 8px
+  
+select.date
+  width: auto
+  display: inline-block
+
+.form-section + .form-section
+  padding-top: 20px
+
+.form-section + .well-info
+  margin-top: 40px
+
+.form-section
+  h4
+    border-bottom: 1px dotted #eee
+    padding-bottom: 10px
+
+.has-error
+  .hint
+    color: #737373
+
+.form-actions
+  margin: 40px 0 0 0
+  padding: 20px
+  border-top: 1px solid #f1f1f2
+  background-color: #fcfcfc
+  
+.form-actions, .modal-footer, .td-actions, .form-actions-affix-bottom
+  &.stacked-on-mobile
+    @media (max-width: $screen-xs-max)
+      .btn, .btn-toolbar
+        display: block !important
+        float: none !important
+        width: 100%
+        margin: 0
+      .btn + .btn, .btn-toolbar + .btn
+        margin-top: 5px
+      .btn + ul
+        margin-top: 5px
+        float: none !important
+
+fieldset + fieldset
+  margin-top: 40px
+
+label
+  .help-text-link
+    display: inline-block
+    margin-left: 10px
+    border-bottom: 1px dotted $text-color
+    cursor: help
+
+.search-box-wrapper
+  position: relative
+  &:before
+    font-family: 'FontAwesome'
+    content: '\f002'
+    position: absolute
+    top: 3px
+    right: 6px
+    font-size: 16px
+    font-style: normal !important
+    color: #e0e0e0 
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    z-index: 10
+
+.navbar .search-box-wrapper
+  input
+    width: 265px

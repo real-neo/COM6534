@@ -1,0 +1,37 @@
+/*
+  *= require university/twitter_bootstrap
+
+  *= require font-awesome
+  *= require select2
+  *= require select2-bootstrap
+
+  *= require epi_utilities
+
+  *= require base/font
+  *= require base/forms
+
+  *= require base/warning_page
+  *= require base/environment_notice
+
+  *= require base/responsive_table
+
+  *= require base/utilities
+  
+  *= require university/layout
+  *= require university/navbar
+  *= require university/header
+  *= require university/wizard_pills
+  *= require university/footer
+
+  *= require university/flash_custom
+
+  *= require university/forms
+  *= require university/elements
+
+  *= require university/application_form
+  *= require university/supporting_statement_form
+  *= require university/registration_form
+  *= require university/admin_form
+  
+  * require university/branding_override
+*/

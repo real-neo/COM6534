@@ -1,0 +1,31 @@
+@import 'university/variables'
+@import 'bootstrap/mixins'
+
+#main-nav.navbar-inverse
+  border: none
+  margin-bottom: 0
+  > .container .navbar-brand, > .container-fluid .navbar-brand
+    background-color: #333132
+    margin-left: 0
+  
+  .navbar-nav
+    > li > a
+      background-color: #333132
+
+#main-nav.navbar-default
+  border: none
+  margin-bottom: 0px
+  > .container .navbar-brand, > .container-fluid .navbar-brand
+    margin-left: 0
+    font-size: $font-size-base
+  li.active
+    a
+      position: relative
+      &:before
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        height: 5px
+        content: ''
+        background-color: #fcfcfc

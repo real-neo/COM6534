@@ -1,0 +1,55 @@
+@import 'university/variables'
+@import 'bootstrap/mixins'
+.flash-messages
+  z-index: 1049
+  left: 0
+  right: 0
+  &.affix-top
+    position: absolute
+    top: $navbar-height + 1px
+  &.affix
+    position: fixed
+    top: 1px
+  .alert
+    @include transition(height 0.2s linear)
+    font-size: 13px
+    border-radius: 0
+    margin: 0
+    padding: 10px
+    border: none
+    text-align: center
+    a
+      text-shadow: 0 1px 0 #fff
+      color: #000
+      font-weight: bold
+      opacity: 0.2
+      &:hover
+        text-decoration: none
+    
+    & + .alert
+      margin-top: 1px
+    
+    &.alert-danger
+      background-color: $btn-danger-bg
+      color: #fff
+      
+    &.alert-success
+      background-color: $btn-success-bg
+      color: #fff
+    
+    &.fade
+      opacity: 1
+      height: 0px
+      overflow: hidden
+    &.in
+      height: auto
+      min-height: 38px
+      overflow: auto
+
+  a
+    margin-left: 5px
+.environment-notice + .flash-messages
+  &.affix-top
+    top: $environment-notice-height + $navbar-height + 1px
+  &.affix
+    top: $environment-notice-height + 1px

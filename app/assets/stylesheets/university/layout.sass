@@ -1,0 +1,59 @@
+@import bootstrap/mixins  
+@import university/variables
+
+html
+  min-height: 100%
+  position: relative
+  -ms-overflow-style: scrollbar
+
+  body
+    margin-bottom: $footer-height + 15px
+    @media (min-width: $screen-sm-min)
+      margin-bottom: $footer-height + 20px
+    &.with-affix-action
+      margin-bottom: 90px
+      @media (min-width: $screen-sm-min)
+        margin-bottom: 95px
+    #main-content
+      padding-top: 20px
+      @media (min-width: $screen-sm-min)
+        margin: 0
+    
+    footer
+      position: absolute
+      bottom: 0
+      left: 0
+      right: 0
+    
+.warning-page-cover
+  background: rgb(0,0,0)
+  background: rgba(0,0,0,0.5)
+  
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: 1040
+  .alert
+    position: absolute
+    z-index: 1000
+    top: 60px
+    right: 20px
+    left: 20px
+    p
+      font-size: 18px
+      line-height: 1.5
+  
+.pagination
+  margin: 0
+  ul.pagination
+    margin-bottom: 10px
+#nav-search
+  margin-top: 5px
+
+.intro-banner
+  margin-bottom: 20px
+
+tr.updated
+  background-color: #eee

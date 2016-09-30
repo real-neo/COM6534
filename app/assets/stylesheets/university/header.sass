@@ -1,0 +1,63 @@
+@import university/variables
+@import bootstrap/mixins
+
+#header
+  background-color: #f5f5f6
+  padding: 15px 0
+  @media (min-width: $screen-sm-min)
+    padding: 20px 0
+  #uni-logo
+    padding-right: 0
+    padding-left: 0
+    @media (min-width: $screen-sm-min)
+      padding-left: $grid-gutter-width / 2
+    .university-logo
+      display: block
+      background: asset-url('/images/crest.gif')
+      background: none, asset-url('uos-logo.svg'), asset-url('crest.gif')
+      background-position: top left
+      background-repeat: no-repeat
+      background-size: 128px 50px
+      height: 50px
+
+      @media (min-width: $screen-sm-min)
+        background-size: 218px 85px
+        height: 85px      
+      @media (min-width: $screen-md-min)
+        background-size: 154px 60px
+        height: 60px
+        
+      @media (min-width: $screen-lg-min)
+        background-size: 180px 70px
+        height: 70px
+      
+  .app-title
+    font-family: 'TUOSStephensonRegular', Georgia, "Times New Roman", Times, serif
+    font-weight: normal
+    display: table-cell
+    vertical-align: middle
+    color: #414042
+    font-size: 20px
+    height: 50px
+    margin: 0
+    p
+      display: none
+    @media (min-width: $screen-sm-min)
+      font-size: 24px
+      line-height: 1.5
+      height: 85px
+      p
+        display: block
+        font-family: $font-family-sans-serif
+        color: #777777
+        line-height: 1
+        font-weight: normal
+        font-size: 0.6em        
+    @media (min-width: $screen-md-min)
+      height: 60px
+      line-height: 1.7
+    @media (min-width: $screen-lg-min)
+      height: 70px
+  #helpline
+    font-size: 20px
+    margin: 15px

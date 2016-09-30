@@ -1,0 +1,9 @@
+%tr[consumable]
+  %td= consumable.name
+  %td= consumable.stock_level
+  %td= consumable.min_stock_level
+  %td
+    - remaining = consumable.stock_level - consumable.min_stock_level 
+    = consumable.stock_level > consumable.min_stock_level ? remaining : "Order now - #{remaining.abs} below minimum level"
+  %td
+    .pull-right=link_to 'Edit', edit_consumable_path(consumable), class: 'btn btn-default btn-xs ajax-modal'

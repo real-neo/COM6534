@@ -1,0 +1,211 @@
+@import bootstrap/mixins  
+@import university/variables
+.panel
+  @include box-shadow(none)
+  a
+    .panel-title
+      color: $dark-purple
+
+.select2-results__option--highlighted
+  .text-muted
+    color: #fff !important
+
+.page-header
+  padding: 0
+  margin: 0 0 20px
+  border: none
+  
+  h1
+    margin: 0
+    font-size: 28px
+    line-height: 1.4 
+        
+.form-actions
+  margin: 40px 0 0
+  
+legend
+  border-style: dotted
+
+small.help-block
+  display: inline-block
+  margin-left: 10px
+  
+textarea + small.help-block, label + small.help-block, .checkbox + small.help-block
+  margin-left: 0
+  margin-top: 5px
+  margin-bottom: 10px
+  display: block
+  &.display-none
+    display: none
+  & + .help-block
+    margin-left: 0
+    
+.page-wrapper
+  input.form-control, select.select
+    width: 100%
+    display: inline-block
+    &.input-half-size
+      width: 50%
+    &.input-full-width
+      width: 100%
+    
+    @media (min-width: $screen-sm-min)
+      width: 50%
+      &.input-half-size
+        width: 25%
+      
+    @media (min-width: $screen-md-min)
+      width: 33.33%
+      &.input-half-size
+        width: 16.66%
+      
+  textarea.form-control
+    @media (min-width: $screen-md-min)
+      width: 50%
+      display: inline-block
+      &.input-half-size
+        width: 33.33%
+      &.input-full-width
+        width: 100%
+
+.table-summary
+  .programme-title
+    font-size: $font-size-base
+    font-weight: bold
+  .dl-contact-details
+    margin-bottom: 0
+    address
+      margin-bottom: 0
+    dt
+      text-align: left
+      width: 210px
+    dd
+      margin-left: 210px
+  .tr-summary
+    table
+      background-color: transparent
+    @media (max-width: $screen-sm-max)
+      .summary-edit-link
+        margin-bottom: 3px
+        margin-top: 8px
+    @media (min-width: $screen-md-min)
+      .summary-edit-link
+        opacity: 0.3
+      &:hover
+        background-color: #fcfcfc
+        .summary-edit-link
+          opacity: 1
+    
+.qualification-table
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max)
+    > tbody
+      > tr
+        > td
+          max-width: 50% !important
+          margin-left: 110px
+          &:before
+            display: block
+            float: left
+            margin-left: -110px
+            margin-right: 10px
+            width: 100px
+            white-space: nowrap
+            font-weight: bold
+            line-height: 34px
+          &:nth-child(1)
+            line-height: 34px
+            &:before
+              content: 'Qualification: '          
+          &:nth-child(2)
+            &:before
+              content: 'Subject: '
+          &:nth-child(3)
+            &:before
+              content: 'Grade: '
+          &:nth-child(4)
+            &:before
+              content: 'Year awarded: '
+          
+          
+  tfoot
+    td
+      @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max)
+        .form-control
+          width: 50%
+      label
+        font-weight: normal
+      
+        
+.qualification-fields
+  padding-bottom: 0
+small.help-block.year-awarded-hint
+  margin-left: 0
+  &.display-none
+    display: none
+  
+.programme-type-header
+  line-height: 1
+  padding: 0
+  margin: 0
+  margin-top: 30px
+  padding-bottom: 10px
+  margin-bottom: 10px
+  border-bottom: 1px dotted #eee
+
+.programmes
+  margin-left: -5px
+  margin-right: -5px
+  .programme-selection, .programme-available
+    padding-left: 5px
+    padding-right: 5px
+    .programme-selection-link, .programme-available-link
+      background-color: #fcfcfc
+      display: block
+      text-align: center
+      padding: 10px 15px
+      margin-bottom: 10px
+      @media (min-width: $screen-md-min)
+        min-height: 235px
+      @media (min-width: $screen-lg-min)
+        min-height: 185px
+      
+      color: $text-color
+      .programme-title
+        h4
+          margin: 0
+          color: $dark-purple
+          font-size: 18px
+          line-height: 2
+          @media (min-width: $screen-md-min)
+            height: 58px
+          @media (min-width: $screen-md-min)
+            .no-subtitle
+              line-height: 58px
+          .small
+            font-size: 11px
+            @media (min-width: $screen-lg-min)
+              font-size: 12px
+      .programme-description
+        border-top: 1px solid #eee
+        padding-top: 9px
+        font-size: 12px
+        img
+          margin-top: 5px
+        .row
+          margin-left: -5px
+          margin-right: -5px
+          > div
+            padding-left: 5px
+            padding-right: 5px
+        
+      &:active, &:focus
+        text-decoration: none
+      &:hover, &.active
+        text-decoration: none
+        background-color: $link-color
+        color: #fff
+        h4
+          color: #fff
+        .text-muted
+          color: #fff
+        

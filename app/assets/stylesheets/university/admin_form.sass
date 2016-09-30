@@ -1,0 +1,124 @@
+@import bootstrap/mixins  
+@import university/variables
+
+#nav-search-box
+  border-radius: 0px
+  border-color: #f1f1f2
+  @include form-control-focus($input-border-focus)
+  
+.well-search
+  background-color: #fcfcfc
+  border-color: #f1f1f2
+  hr
+    margin-top: 15px
+    margin-bottom: 15px
+    @media (min-width: $screen-md-min)
+      margin-top: 9px
+      margin-bottom: 9px
+    border-color: #f1f1f2
+  .row
+    margin-left: -5px
+    margin-right: -5px
+    @media (min-width: $screen-md-min)
+      &.last-row
+        .form-group
+          margin-bottom: 0
+    > div
+      padding-left: 5px
+      padding-right: 5px
+  .select2-container--bootstrap .select2-selection--multiple .select2-selection__choice
+    font-size: 85%
+    line-height: 20px
+
+.page-info-container
+  margin-top: 10px
+  @media (min-width: $screen-md-min)
+    margin-top: 0
+    float: right
+  
+
+td.ref-col
+  width: 8px
+  min-height: 8px
+  padding: 0 !important
+td.applicant-details
+  p
+    margin-bottom: 5px
+
+.list-legend
+  line-height: 16px
+  font-size: 85%
+  span.ref-legend, span.status-legend
+    vertical-align: top
+    margin-top: 2px
+    margin-right: 2px
+    display: inline-block
+    height: 12px
+    width: 12px
+    
+.list-with-tooltips
+  li
+    cursor: help
+
+td.ref-col, span.ref-legend
+  background-color: #eee
+  &.has-extenuating-circumstances
+    background-color: #4986E7
+  &.has-special-circumstances
+    background-color: #F691B2
+  &.met-prioritisation-criteria
+    background-color: #9FE1E7
+    
+td.status-col
+  &.scores_calculated
+    .badge
+      background-color: #eee
+      border: 1px solid #ddd
+      color: $text-color
+  &.accepted
+    .badge
+      background-color: $btn-success-bg
+      border: 1px solid $btn-success-bg
+  &.rejected
+    .badge
+      background-color: $btn-warning-bg
+      border: 1px solid $btn-warning-bg
+  &.referred
+  &.parental_consented
+  
+
+.summary-section-header
+  color: $dark-purple
+
+#application-notes, #application-histories
+  .well + .well
+    margin-top: 8px
+
+#table-application-outcome-report
+  thead
+    th
+      font-size: 85%
+      text-align: center
+      
+tr.account.disabled
+  opacity: 0.4
+tr.account.new
+  background: #eee
+tfoot
+  td.td-pagination
+    padding: 0 !important
+    font-size: 85%
+    .pagination
+      margin: 0
+      margin-top: 1px
+      display: block
+      float: right
+      > li
+        display: none
+        &.prev, &.next, &.active
+          display: inline
+        @media (min-width: $screen-sm-min)
+          display: inline
+        > a, > span
+          border: none
+

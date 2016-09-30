@@ -1,0 +1,50 @@
+@import 'base/variables'
+@import 'bootstrap/mixins'
+
+@mixin responsive-table()
+  &, > thead, > tbody, > tfoot
+    display: block
+    & > tr
+      &, > th, > td
+        display: block
+      > td
+        border: none
+  > thead
+    position: absolute
+    top: -9999px
+    left: -9999px
+    border: none
+    tr
+      border: none
+      th
+        border: none
+  > tbody, > tfoot
+    > tr
+      border-top: 1px solid #f1f1f2
+      padding-top: 2px
+      padding-bottom: 2px
+      > td, > th
+        border-top: none
+        text-align: left
+        width: 100% !important
+        padding: 3px
+        &:before
+          display: block
+          float: left
+          margin-right: 10px
+          min-width: 15%
+          white-space: nowrap
+          font-weight: bold
+          content: attr(data-label)
+        .btn.btn-text
+          @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border)
+          @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $btn-border-radius-small)
+
+@media (max-width: $screen-xs-max)
+  table.responsive-xs
+    @include responsive-table()
+    
+@media (max-width: $screen-sm-max)
+  table.responsive-sm
+    @include responsive-table()
+  

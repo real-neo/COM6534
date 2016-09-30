@@ -1,0 +1,47 @@
+@import bootstrap/mixins  
+@import university/variables
+
+.well
+  @include box-shadow(none)
+  border-radius: 0
+  margin-bottom: 20px
+  background-color: #fcfcfc
+  border-color: #f1f1f2
+  p:last-child
+    margin-bottom: 0px
+  &.well-info
+    background-color: $well-info-bg
+    border: none
+    font-size: 15px
+    padding: 9px  
+    @media (min-width: $screen-md-min)
+      padding: 14px
+      font-size: 17px
+      font-weight: 200
+  &.well-alert
+    background-color: $well-alert-bg
+    border: none
+    font-size: 15px
+    padding: 9px  
+    @media (min-width: $screen-md-min)
+      padding: 14px
+      font-size: 17px
+      font-weight: 200
+
+.alert
+  border-radius: 0
+.alert-sm
+  padding: 9px
+  
+
+.modal .select2-container .select2-search__field:not([placeholder=''])
+  width: 100% !important
+  margin-right: 100000px
+
+.collapse .select2-container .select2-search__field:not([placeholder=''])
+  width: 100% !important
+
+#viewing-warning.affix
+  top: 0
+  right: 0
+  width: auto

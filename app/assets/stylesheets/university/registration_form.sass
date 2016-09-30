@@ -1,0 +1,24 @@
+@import base/variables
+
+.programme-contacts
+  .nested-fields
+    margin-bottom: 15px
+    .h4
+      line-height: 1
+      padding: 0
+      margin: 0
+      padding-bottom: 10px
+      margin-bottom: 10px
+      border-bottom: 1px dotted #eee
+    padding: 15px
+    border-bottom: 1px solid #eee
+    .form-group:last-child > .checkbox:last-child
+      margin-bottom: 0
+#assigned-programmes
+  &.affix
+    position: fixed
+    top: 30px
+  .alert + p + ul
+    li
+      .fa-square + span
+        color: $state-danger-text

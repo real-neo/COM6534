@@ -1,0 +1,92 @@
+@import bootstrap/mixins  
+@import university/variables
+
+#wizard-pills, #subnav-pills
+  background-color: #fcfcfc
+  border-bottom: 1px solid #f1f1f2
+  .nav-pills
+    &.nav-justified
+      > li
+        display: table-cell
+        width: 1%
+        > a
+          padding: 8px 0px
+        
+    > li      
+      @media (min-width: $screen-sm-min)
+        margin-right: 15px
+      @media (min-width: $screen-lg-min)
+        margin-right: 20px
+      > a
+        position: relative
+        border-radius: 0px
+        font-size: 12px
+        text-align: center
+        white-space: nowrap
+        padding-top: 8px
+        padding-bottom: 8px
+        margin: 0
+        color: lighten($link-color, 5%)
+        .pill-index
+          font-weight: 700
+          display: block
+        .pill-label
+          display: none
+        
+        &:before
+          position: absolute
+          top: -1px
+          left: 0px
+          right: 0px
+          height: 2px
+          content: ''
+        @media (min-width: $screen-md-min)
+          .pill-index
+            display: none
+          .pill-label 
+            display: block
+        @media (min-width: $screen-lg-min)
+          font-size: 14px
+        small
+          font-size: 10px
+        &:hover, &:focus, &:active
+          background-color: transparent
+          &:before
+            background-color: #ddd
+          
+      &.active
+        a
+          background-color: #fff
+          color: $dark-purple
+          border-left:  1px solid #f1f1f2
+          border-right: 1px solid #f1f1f2
+          font-weight: 600
+          .pill-index
+            display: none
+          .pill-label 
+            display: block
+          &:before
+            left: -1px
+            right: -1px
+            background-color: $dark-purple
+          &:after
+            position: absolute
+            background-color: #fff
+            bottom: -1px
+            left: 0px
+            right: 0px
+            height: 1px
+            content: ''
+      &.disabled
+        a
+          color: #777
+    &.collapse-xs
+      @media (min-width: $screen-sm-min)    
+        > li
+          > a
+            .pill-index
+              display: none
+            .pill-label 
+              display: block
+#subnav-pills
+  padding-top: 5px
