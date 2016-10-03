@@ -30,6 +30,7 @@ class Account < ApplicationRecord
   include EpiCas::DeviseHelper
 
   enum role: [ :student, :staff ]
+  has_many :purchases
 
   def generate_attributes_from_ldap_info
     if self.dn.downcase =~ /students/

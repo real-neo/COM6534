@@ -2,5 +2,6 @@
   %td= consumable.name
   %td= consumable.category
   %td= consumable.number_available_for_purchase
+  %td= current_account.purchases.where(consumable: consumable).map(&:amount).sum
   %td
     .pull-right=link_to 'Check out', new_students_consumable_purchase_path(consumable), class: 'btn btn-default btn-xs ajax-modal'
