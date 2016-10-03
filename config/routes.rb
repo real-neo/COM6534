@@ -16,9 +16,21 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: "consumables#index"
+  namespace :staff do
+    resources :consumables
+    resources :purchases, only: :index
+  end
 
-  resources :consumables
+  authenticated :account, ->(user) { user.staff? } do
+    root to: "staff/consumables#index", as: :staff_root
+  end
+
+  authenticated :account, ->(user) { user.student? } do
+    root to: "students/consumables#index", as: :student_root
+  end
+
+  root to: "staff/consumables#index"
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

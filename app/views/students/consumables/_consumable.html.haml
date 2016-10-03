@@ -1,6 +1,6 @@
 %tr[consumable]
-  %td= consumable.category
   %td= consumable.name
-  %td= consumable.stock_level
+  %td= consumable.category
+  %td= consumable.number_available_for_purchase
   %td
     .pull-right=link_to 'Check out', new_students_consumable_purchase_path(consumable), class: 'btn btn-default btn-xs ajax-modal'

@@ -1,6 +1,6 @@
 .modal-dialog
   .modal-content
-    = simple_form_for @consumable, remote: true do |f|
+    = simple_form_for [:staff, @consumable], remote: true do |f|
       .modal-header
         %button.close{ type: :button, data: { dismiss: :modal } }
           %span &times;

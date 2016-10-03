@@ -18,7 +18,7 @@ class Consumable < ApplicationRecord
   CATEGORY_LIMITS = { stationary: 10, chemical: 1, hardware: 5, wearable: 20, disposable: 15 }
   enum category: CATEGORY_LIMITS.keys
 
-  validates :name, :description, :stock_level, :min_stock_level, presence: true
+  validates :name, :description, :stock_level, :min_stock_level, :category, presence: true
   validates :stock_level, :min_stock_level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   def number_available_for_purchase

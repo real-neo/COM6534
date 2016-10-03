@@ -33,11 +33,10 @@ class Account < ApplicationRecord
 
   def generate_attributes_from_ldap_info
     if self.dn.downcase =~ /students/
-      self.role = :student
+      self.role ||= :student
     elsif self.dn.downcase =~ /staff/
-      self.role = :staff
+      self.role ||= :staff
     end
-
     super
   end
 end

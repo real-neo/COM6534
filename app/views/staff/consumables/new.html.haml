@@ -4,7 +4,7 @@
 .panel.panel-default
   .panel-heading
     %h3.panel-title Consumable
-  = simple_form_for @consumable do |f|
+  = simple_form_for [:staff, @consumable] do |f|
     .panel-body
       .col-md-6
         = f.input :name
@@ -16,4 +16,4 @@
     .panel-footer
       = f.button :submit, class: 'btn btn-primary'
       .pull-right
-        = link_to 'Back', consumables_path, class: 'btn btn-default'
+        = link_to 'Back', staff_consumables_path, class: 'btn btn-default'

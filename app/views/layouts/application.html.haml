@@ -39,7 +39,27 @@
             = fa_icon('home')
             %span.sr-only Go back to home page
         %ul.nav.navbar-nav
+
+
+
           - if account_signed_in?
+
+            - if current_account.staff?
+
+              = navbar_link_to staff_consumables_path, identifier: 'consumables', title: 'Current applications'  do
+                = fa_icon 'shopping-cart', class: 'fa-fw'
+                Consumables
+
+              = navbar_link_to staff_purchases_path, identifier: 'report', title: 'Current applications'  do
+                = fa_icon 'shopping-cart', class: 'fa-fw'
+                Report
+
+            - else
+
+              = navbar_link_to students_consumables_path, identifier: 'consumables', title: 'Current applications'  do
+                = fa_icon 'shopping-cart', class: 'fa-fw'
+                Consumables
+
             = navbar_link_to destroy_account_session_path, method: :delete, title: "Log out of the system", liclass: 'user-link' do
               Log out
           - else

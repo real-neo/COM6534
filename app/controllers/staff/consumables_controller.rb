@@ -1,4 +1,4 @@
-class ConsumablesController < ApplicationController
+class Staff::ConsumablesController < Staff::ApplicationController
 
   def index
     @consumables = Consumable.order(:name)
