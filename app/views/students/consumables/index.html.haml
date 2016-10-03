@@ -1,0 +1,22 @@
+- content_for :title, 'All consumables'
+
+
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title Consumable
+
+  %table.table#consumables-table
+    %thead
+      %tr
+        %th Category
+        %th Name
+        %th Amount available
+        %th
+
+    %tbody
+      - if @consumables.blank?
+        = no_record_tr(4)
+      - else
+        = render @consumables
+
+

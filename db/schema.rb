@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161003102238) do
+ActiveRecord::Schema.define(version: 20161003103732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,17 @@ ActiveRecord::Schema.define(version: 20161003102238) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.integer  "account_id"
+    t.integer  "consumable_id"
+    t.integer  "amount"
+    t.text     "reason"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["account_id"], name: "index_purchases_on_account_id", using: :btree
+    t.index ["consumable_id"], name: "index_purchases_on_consumable_id", using: :btree
   end
 
   create_table "sessions", force: :cascade do |t|

@@ -10,6 +10,12 @@ Rails.application.routes.draw do
   get :ie_warning, to: 'errors#ie_warning'
   get :javascript_warning, to: 'errors#javascript_warning'
 
+  namespace :students do
+    resources :consumables, only: [:index] do
+      resources :purchases, only: [:new, :create]
+    end
+  end
+
   root to: "consumables#index"
 
   resources :consumables

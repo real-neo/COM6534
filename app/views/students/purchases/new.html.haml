@@ -1,0 +1,19 @@
+.modal-dialog
+  .modal-content
+    = simple_form_for [:students, @consumable, @purchase], remote: true do |f|
+      .modal-header
+        %button.close{ type: :button, data: { dismiss: :modal } }
+          %span &times;
+        %h4.modal-title Purchase #{@consumable.name}
+      .modal-body
+        .alert.alert-info You may purchase up to #{pluralize(@consumable.number_available_for_purchase, 'item')}.
+
+        = f.input :amount, as: :string
+        = f.input :reason
+
+      .modal-footer
+        .pull-left
+          = link_to fa_icon('times', text: 'Close' ), '#', class: 'btn btn-default', data: { dismiss: 'modal' }
+        %button{type: :submit, class: 'btn btn-primary'}
+          = fa_icon('check', text: 'Save')
+
