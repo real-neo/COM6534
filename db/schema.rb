@@ -10,10 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160929133127) do
+ActiveRecord::Schema.define(version: 20161003102238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accounts", force: :cascade do |t|
+    t.string   "email",              default: "", null: false
+    t.integer  "sign_in_count",      default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "username"
+    t.string   "uid"
+    t.string   "mail"
+    t.string   "ou"
+    t.string   "dn"
+    t.string   "sn"
+    t.string   "givenname"
+    t.integer  "role"
+    t.index ["email"], name: "index_accounts_on_email", using: :btree
+    t.index ["username"], name: "index_accounts_on_username", using: :btree
+  end
 
   create_table "consumables", force: :cascade do |t|
     t.string   "name"
@@ -22,6 +43,7 @@ ActiveRecord::Schema.define(version: 20160929133127) do
     t.integer  "min_stock_level"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "category"
   end
 
   create_table "delayed_jobs", force: :cascade do |t|

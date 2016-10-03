@@ -8,7 +8,7 @@
     = javascript_include_tag "application"
     = favicon_link_tag '/favicon.ico'
     %link{ href: '/apple-touch-icon.png', rel: 'apple-touch-icon' }
-    
+
     = csrf_meta_tags
   %body{ class: "#{'with-affix-action' if @hide_footer} #{environment_notice_body_class}" }
     = link_to 'Skip to main content', '#main-content', class: 'sr-only sr-only-focusable'
@@ -38,8 +38,14 @@
           = link_to '/', title: "Go back to home page", class: 'navbar-brand' do
             = fa_icon('home')
             %span.sr-only Go back to home page
+        %ul.nav.navbar-nav
+          - if account_signed_in?
+            = navbar_link_to destroy_account_session_path, method: :delete, title: "Log out of the system", liclass: 'user-link' do
+              Log out
+          - else
+            = navbar_link_to new_account_session_path, title: "Log in to the system", liclass: 'user-link' do
+              Log in
 
-        
 
     #header
       .container
@@ -52,8 +58,8 @@
               = app_title
               - if content_for?(:section_title)
                 %p= content_for(:section_title)
-                
-    
+
+
     #main-content{ 'aria-live' => :assertive }
       .container
         - if content_for?(:section_title)

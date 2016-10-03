@@ -34,6 +34,7 @@ gem 'devise', '>= 4.0.0'
 gem 'devise_ldap_authenticatable', '>= 0.8.5'
 gem 'devise_cas_authenticatable', '>= 1.5.0'
 gem 'cancancan'
+gem 'epi_cas', git: 'git@git.shefcompsci.org.uk:gems/epi_cas.git'
 
 gem 'whenever'
 gem 'delayed_job'

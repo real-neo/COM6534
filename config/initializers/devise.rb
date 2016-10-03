@@ -1,18 +1,30 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+  # ==> CAS configuration
+  # Use CAS to log in, location configured in epi_cas_settings.yml
+  config.cas_base_url = EpiCas::Settings.cas_base_url
+  # Redirect log out to app logout page, which then uses CAS to log out
+  config.cas_logout_url = EpiCas::Settings.app_logout_url
+  config.cas_logout_url_param = 'destination'
+  config.cas_enable_single_sign_out = true
+  # By default, devise_cas_authenticatable will create users.  If you would rather
+  # require user records to already exist locally before they can authenticate via
+  # CAS, uncomment the following line:
+  # config.cas_create_user = false
+
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  config.secret_key = '77374453bb6d4042fd742db72d19d7cb698cafc5b3d49c8bb0ec72d08e6410563810a8715b66ad07348cd76e42a8012c06b7fc414d30bfb343f3cee20b0d35cc'
+  # config.secret_key = '266fe3953bcb46a651c21a47145a1def70087366fea3490cb2881042c8f63d943861e21d36e385f1e698b0185ffaf127246627b6f0e8a6a22b9d608fdd188e31'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'My App <no-reply@sheffield.ac.uk>'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -108,7 +120,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  config.pepper = '1cec32aa6e7ae6f68cb81e72fa9714c9a1b0e7369f81e698ae2b5affe0ab55bb0d8dfab4b334dcd40a46ba968b909cd04d910df7a3efbc910f586fd187a170d1'
+  # config.pepper = '185c0dfd1db0c4d0c283a11610ac2419111e3cdd3de955faaf06b1fa8ad5dd8520ad33eb7fe679e755553d09bf7b069d395d575e9986e7934ccfbfa6f0580cc0'
 
   # Send a notification email when the user's password is changed
   # config.send_password_change_notification = false
