@@ -25,8 +25,10 @@ class Staff::ConsumablesController < Staff::ApplicationController
   def update
     @consumable = Consumable.find(params[:id])
     if @consumable.update_attributes(consumable_params)
+      @consumable = @consumable.decorate
       render 'update_success'
     else
+      @consumable = @consumable.decorate
       render 'update_failure'
     end
   end

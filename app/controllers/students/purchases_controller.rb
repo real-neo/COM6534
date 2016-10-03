@@ -12,11 +12,13 @@ class Students::PurchasesController < Students::ApplicationController
 
     ActiveRecord::Base.transaction do 
       if @purchase.update_attributes(purchase_params.merge({ account: current_account })) && @consumable.update_attributes(stock_level: @consumable.stock_level - @purchase.amount)
+        @consumable = @consumable.decorate
         return render 'create_success'
       else
         raise ActiveRecord::Rollback
       end
     end
+    @consumable = @consumable.decorate
     render 'create_failure'
   end
 

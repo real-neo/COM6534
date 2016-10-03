@@ -1,7 +1,7 @@
 class Students::ConsumablesController < Students::ApplicationController
 
   def index
-    @consumables = Consumable.order(:name)
+    @consumables = Consumable.order(:name).decorate
   end
 
 end

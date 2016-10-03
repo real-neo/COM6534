@@ -20,7 +20,9 @@ describe 'Purchasing consumables' do
         fill_in 'Reason', with: 'For a lab project'
         click_button 'Save'
         wait_for_ajax 
-        
+        within(:css, "#consumable_#{consumable.id}") do
+          expect(page).to have_content 5
+        end
       end
 
     end
