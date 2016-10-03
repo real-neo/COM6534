@@ -68,6 +68,7 @@ end
 group :test do
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
+  gem 'capybara-select2', git: 'https://github.com/goodwill/capybara-select2.git'
   gem 'capybara'
   gem 'poltergeist'
   gem 'rspec-instafail', require: false
