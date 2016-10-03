@@ -7,3 +7,4 @@
     = consumable.stock_level > consumable.min_stock_level ? remaining : "Order now - #{remaining.abs} below minimum level"
   %td
     .pull-right=link_to 'Edit', edit_staff_consumable_path(consumable), class: 'btn btn-default btn-xs ajax-modal'
+    .pull-right=link_to 'Edit', edit_staff_consumable_path(consumable), title: "Edit stock level for #{consumable.name}", class: 'btn btn-default btn-xs ajax-modal'

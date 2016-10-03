@@ -4,5 +4,6 @@ FactoryGirl.define do
     description "MyString"
     stock_level 1
     min_stock_level 1
+    category :chemical
   end
 end

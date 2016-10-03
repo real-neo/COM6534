@@ -39,6 +39,14 @@ GIT
       slop (~> 3.6)
 
 GIT
+  remote: https://github.com/goodwill/capybara-select2.git
+  revision: 585192e4bb0db8d52e761ab68f08c17294806447
+  specs:
+    capybara-select2 (1.0.1)
+      capybara
+      rspec
+
+GIT
   remote: https://github.com/keylimetoolbox/will_paginate.git
   revision: 440e4d55b77e03af1d94ac9c08fe1de12e51e89e
   branch: order_of_locales
@@ -394,6 +402,7 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rvm
   capybara
+  capybara-select2!
   coffee-rails
   daemons
   database_cleaner
@@ -440,4 +449,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.13.1
+   1.13.2
