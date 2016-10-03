@@ -34,7 +34,7 @@ class ConsumablesController < ApplicationController
   private
 
     def consumable_params
-      params.require(:consumable).permit(:name, :description, :stock_level, :min_stock_level)
+      params.require(:consumable).permit(:name, :description, :stock_level, :min_stock_level, :category)
     end
 
 end

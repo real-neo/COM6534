@@ -11,6 +11,7 @@
         = f.input :description
         = f.input :stock_level, as: :string
         = f.input :min_stock_level, as: :string
+        = f.input :category, collection: Consumable.categories.keys, input_html: { class: 'select2' }
 
     .panel-footer
       = f.button :submit, class: 'btn btn-primary'
