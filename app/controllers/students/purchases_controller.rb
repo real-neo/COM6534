@@ -9,17 +9,15 @@ class Students::PurchasesController < Students::ApplicationController
 
   def create
     @purchase = @consumable.purchases.build
-
-    ActiveRecord::Base.transaction do 
-      if @purchase.update_attributes(purchase_params.merge({ account: current_account })) && @consumable.update_attributes(stock_level: @consumable.stock_level - @purchase.amount)
-        @consumable = @consumable.decorate
-        return render 'create_success'
-      else
-        raise ActiveRecord::Rollback
-      end
-    end
     @consumable = @consumable.decorate
-    render 'create_failure'
+
+    purchaser = Purchaser.new(@purchase, current_account, purchase_params)
+
+    if purchaser.make_purchase
+      render 'create_success'
+    else
+      render 'create_failure'
+    end
   end
 
   private
