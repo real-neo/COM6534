@@ -12,16 +12,13 @@
 
 ActiveRecord::Schema.define(version: 20161003103732) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "accounts", force: :cascade do |t|
     t.string   "email",              default: "", null: false
     t.integer  "sign_in_count",      default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.string   "username"
@@ -32,8 +29,8 @@ ActiveRecord::Schema.define(version: 20161003103732) do
     t.string   "sn"
     t.string   "givenname"
     t.integer  "role"
-    t.index ["email"], name: "index_accounts_on_email", using: :btree
-    t.index ["username"], name: "index_accounts_on_username", using: :btree
+    t.index ["email"], name: "index_accounts_on_email"
+    t.index ["username"], name: "index_accounts_on_username"
   end
 
   create_table "consumables", force: :cascade do |t|
@@ -58,7 +55,7 @@ ActiveRecord::Schema.define(version: 20161003103732) do
     t.string   "queue"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
   create_table "purchases", force: :cascade do |t|
@@ -68,8 +65,8 @@ ActiveRecord::Schema.define(version: 20161003103732) do
     t.text     "reason"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["account_id"], name: "index_purchases_on_account_id", using: :btree
-    t.index ["consumable_id"], name: "index_purchases_on_consumable_id", using: :btree
+    t.index ["account_id"], name: "index_purchases_on_account_id"
+    t.index ["consumable_id"], name: "index_purchases_on_consumable_id"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -77,8 +74,8 @@ ActiveRecord::Schema.define(version: 20161003103732) do
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["session_id"], name: "index_sessions_on_session_id", unique: true, using: :btree
-    t.index ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
+    t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
+    t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
 
 end
