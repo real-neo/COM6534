@@ -11,7 +11,7 @@ class Students::PurchasesController < Students::ApplicationController
     @purchase = @consumable.purchases.build
     @consumable = @consumable.decorate
 
-    purchaser = Purchaser.new(@purchase, current_account, purchase_params)
+    purchaser = Purchaser.new(purchase: @purchase, account: current_account, params: purchase_params)
 
     if purchaser.make_purchase
       render 'create_success'

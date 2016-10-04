@@ -6,7 +6,7 @@ describe Purchaser do
   let(:purchase) { double 'purchase', consumable: double('consumable') }
   let(:params)   { Hash.new } 
 
-  subject { described_class.new(purchase, account, params) }
+  subject { described_class.new(purchase: purchase, account: account, params: params) }
 
   it 'returns true if both models update' do
     transaction = class_double('transaction')
