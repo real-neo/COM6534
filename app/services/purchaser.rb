@@ -2,7 +2,7 @@ class Purchaser
 
   attr_accessor :purchase, :consumable, :params, :account
 
-  def initialize(purchase: purchase, account: account, params: params)
+  def initialize(purchase:, account:, params:)
     self.purchase   = purchase
     self.consumable = purchase.consumable
     self.params     = params

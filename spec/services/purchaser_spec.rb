@@ -32,5 +32,4 @@ describe Purchaser do
     expect { subject.make_purchase(transaction, Exception.new('rollback')) }.to raise_error 'rollback' 
   end
 
-
 end
