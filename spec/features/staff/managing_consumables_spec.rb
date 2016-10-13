@@ -3,6 +3,7 @@ require 'rails_helper'
 describe 'Managing consumables' do
 
   context 'As a staff member', js: true do
+    
     let(:staff) { FactoryGirl.create(:staff) }
     before do 
       login_as staff 
