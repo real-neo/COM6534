@@ -19,6 +19,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'select2-rails'
 gem 'epi_js'
+gem 'switchery-rails'
 
 gem 'simple_form'
 gem 'draper', git: 'https://github.com/drapergem/draper.git'

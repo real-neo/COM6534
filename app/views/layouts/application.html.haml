@@ -50,9 +50,10 @@
                 = fa_icon 'shopping-cart', class: 'fa-fw'
                 Consumables
 
-              = navbar_link_to staff_purchases_path, identifier: 'report', title: 'Current applications'  do
-                = fa_icon 'shopping-cart', class: 'fa-fw'
-                Report
+              - if FeatureToggle.enabled_feature?('reporting')
+                = navbar_link_to staff_purchases_path, identifier: 'report', title: 'Current applications'  do
+                  = fa_icon 'shopping-cart', class: 'fa-fw'
+                  Report
 
             - else
 

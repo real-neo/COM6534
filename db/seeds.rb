@@ -11,3 +11,6 @@ end
   account.role = :student
   account.save
 end
+
+FeatureToggle.where(identifier: 'reporting').first_or_create!(name: 'Staff - Reporting')
+FeatureToggle.where(identifier: 'purchasing').first_or_create!(name: 'Student - Purchasing')

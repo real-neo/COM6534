@@ -8,3 +8,5 @@
 //= require modal
 //= require select2
 //= require select2_init
+//= require switchery
+//= require switchery_init

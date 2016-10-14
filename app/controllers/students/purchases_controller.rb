@@ -1,5 +1,6 @@
 class Students::PurchasesController < Students::ApplicationController
 
+  before_action :feature_enabled?
   before_action :find_consumable
 
   def new
@@ -21,6 +22,10 @@ class Students::PurchasesController < Students::ApplicationController
   end
 
   private
+
+    def feature_enabled?
+      raise CanCan::AccessDenied unless FeatureToggle.enabled_feature?('purchasing')
+    end
 
     def find_consumable
       @consumable = Consumable.find(params[:consumable_id])

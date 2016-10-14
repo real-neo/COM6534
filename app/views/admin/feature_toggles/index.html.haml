@@ -1,0 +1,20 @@
+.row
+  .col-md-6
+    %table.table.table-hover
+      %thead
+        %tr
+          %th Name
+          %th Enabled?
+      %tbody
+        - @feature_toggles.each do |feature_toggle|
+          %tr
+            %td.vertical-middle= feature_toggle.name
+            %td
+              = simple_form_for [:admin, feature_toggle] do |f|
+                = f.hidden_field :enabled, value: 0
+                %input.js-switch{ name: 'feature_toggle[enabled]', value: 1, type: :checkbox, checked: f.object.enabled }
+
+:coffee
+  $ ->
+    $('input[type="checkbox"].js-switch').change ->
+      $(this).closest('form').submit()

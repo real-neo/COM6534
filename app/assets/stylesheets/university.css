@@ -16,7 +16,7 @@
   *= require base/responsive_table
 
   *= require base/utilities
-  
+
   *= require university/layout
   *= require university/navbar
   *= require university/header
@@ -32,6 +32,8 @@
   *= require university/supporting_statement_form
   *= require university/registration_form
   *= require university/admin_form
-  
+
   * require university/branding_override
+
+  *= require switchery
 */

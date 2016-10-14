@@ -21,6 +21,10 @@ Rails.application.routes.draw do
     resources :purchases, only: :index
   end
 
+  namespace :admin do
+    resources :feature_toggles, only: [:index, :update]
+  end
+
   authenticated :account, ->(user) { user.staff? } do
     root to: "staff/consumables#index", as: :staff_root
   end
