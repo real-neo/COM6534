@@ -15,3 +15,11 @@ namespace :deploy do
     end end end
   end
 end
+
+namespace :airbrake do
+  task :test do
+    on primary :db do within current_path do with rails_env: fetch(:stage) do
+      execute :rake, 'airbrake:test'
+    end end end
+  end
+end
