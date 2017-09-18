@@ -1,4 +1,4 @@
-class CreateFeatureToggles < ActiveRecord::Migration[5.0]
+class CreateFeatureToggles < ActiveRecord::Migration[5.1]
   def change
     create_table :feature_toggles do |t|
       t.string :identifier

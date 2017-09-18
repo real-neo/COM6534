@@ -1,8 +1,8 @@
 source "https://rubygems.org"
 ruby '2.3.1'
-gem 'rails', '5.0.0.1'
+gem 'rails', '5.1.4'
 gem 'responders', '> 2.1'
-gem 'activerecord-session_store', '~> 1.0.0'
+gem 'activerecord-session_store'
 
 gem 'sqlite3', group: [:development, :test]
 gem 'pg'
@@ -31,9 +31,9 @@ gem 'polyamorous', '~> 1.3.1'
 gem 'will_paginate', git: 'https://github.com/keylimetoolbox/will_paginate.git', branch: 'order_of_locales'
 gem 'bootstrap-will_paginate'
 
-gem 'devise', '>= 4.0.0'
-gem 'devise_ldap_authenticatable', '>= 0.8.5'
-gem 'devise_cas_authenticatable', '>= 1.5.0'
+gem 'devise'
+gem 'devise_ldap_authenticatable'
+gem 'devise_cas_authenticatable'
 gem 'cancancan'
 gem 'epi_cas', git: 'git@git.shefcompsci.org.uk:gems/epi_cas.git'
 

@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: feature_toggles
+#
+#  id         :integer          not null, primary key
+#  identifier :string
+#  name       :string
+#  enabled    :boolean          default(FALSE)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 FactoryGirl.define do
   factory :feature_toggle do
 

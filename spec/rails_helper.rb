@@ -20,7 +20,7 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 # This *may* be fixed in Rails 5, but it's broken in at least Rails 4.1
 if ActiveRecord::Migrator.needs_migration?
   puts('Loading schema into test database...')
-  ActiveRecord::Tasks::DatabaseTasks.load_schema_for ActiveRecord::Base.configurations['test']
+  ActiveRecord::Tasks::DatabaseTasks.load_schema_current
 end
 ActiveRecord::Migration.maintain_test_schema!
 
