@@ -3,18 +3,18 @@ require 'rails_helper'
 describe 'Purchasing consumables' do
 
   context 'As a student member', js: true do
-    let(:student) { FactoryGirl.create(:student) }
+    let(:student) { FactoryBot.create(:student) }
 
     before do
       login_as student
     end
 
     context 'given that a consumable exists' do
-      let!(:consumable) { FactoryGirl.create :consumable, stock_level: 100, category: :wearable }
+      let!(:consumable) { FactoryBot.create :consumable, stock_level: 100, category: :wearable }
 
       context 'the feature is enabled' do
         before do
-          FactoryGirl.create(:enable_purchasing)
+          FactoryBot.create(:enable_purchasing)
         end
 
         specify 'I can purchase that consumable' do

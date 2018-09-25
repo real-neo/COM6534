@@ -2,7 +2,7 @@
 #
 # Table name: accounts
 #
-#  id                 :integer          not null, primary key
+#  id                 :bigint(8)        not null, primary key
 #  email              :string           default(""), not null
 #  sign_in_count      :integer          default(0), not null
 #  current_sign_in_at :datetime

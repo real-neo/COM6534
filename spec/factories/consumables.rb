@@ -2,7 +2,7 @@
 #
 # Table name: consumables
 #
-#  id              :integer          not null, primary key
+#  id              :bigint(8)        not null, primary key
 #  name            :string
 #  description     :string
 #  stock_level     :integer
@@ -12,12 +12,12 @@
 #  category        :integer
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :consumable do
-    name "MyString"
-    description "MyString"
-    stock_level 500
-    min_stock_level 10
-    category :chemical
+    name { "MyString" }
+    description { "MyString" }
+    stock_level { 500 }
+    min_stock_level { 10 }
+    category { :chemical }
   end
 end

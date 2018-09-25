@@ -3,10 +3,10 @@ require 'rails_helper'
 describe 'Managing consumables' do
 
   context 'As a staff member', js: true do
-    
-    let(:staff) { FactoryGirl.create(:staff) }
-    before do 
-      login_as staff 
+
+    let(:staff) { FactoryBot.create(:staff) }
+    before do
+      login_as staff
       visit '/'
     end
 
@@ -24,7 +24,7 @@ describe 'Managing consumables' do
     end
 
     context 'Given that a consumable already exists' do
-      let!(:consumable) { FactoryGirl.create :consumable, name: 'My consumable' }
+      let!(:consumable) { FactoryBot.create :consumable, name: 'My consumable' }
 
       specify 'I can edit the stock level for an item' do
         visit '/'
@@ -38,7 +38,7 @@ describe 'Managing consumables' do
         end
       end
 
-    end 
+    end
 
   end
 

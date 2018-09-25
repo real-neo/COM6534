@@ -2,9 +2,9 @@
 #
 # Table name: purchases
 #
-#  id            :integer          not null, primary key
-#  account_id    :integer
-#  consumable_id :integer
+#  id            :bigint(8)        not null, primary key
+#  account_id    :bigint(8)
+#  consumable_id :bigint(8)
 #  amount        :integer
 #  reason        :text
 #  created_at    :datetime         not null
@@ -16,10 +16,10 @@
 #  index_purchases_on_consumable_id  (consumable_id)
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :purchase do
-    account ""
-    amount 1
-    reason "MyText"
+    account { "" }
+    amount { 1 }
+    reason { "MyText" }
   end
 end

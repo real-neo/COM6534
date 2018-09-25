@@ -1,7 +1,7 @@
 source "https://rubygems.org"
-ruby '2.3.1'
-gem 'rails', '5.1.4'
-gem 'responders', '> 2.1'
+ruby '2.4.4'
+gem 'rails', '5.2.1'
+gem 'responders'
 gem 'activerecord-session_store'
 
 gem 'sqlite3', group: [:development, :test]
@@ -23,9 +23,9 @@ gem 'switchery-rails'
 
 gem 'simple_form'
 gem 'draper', git: 'https://github.com/drapergem/draper.git'
-gem 'ransack', '~> 1.8.0'
+gem 'ransack'
 
-gem 'polyamorous', '~> 1.3.1'
+gem 'polyamorous'
 
 # Waiting https://github.com/mislav/will_paginate/pull/465 to be merged in
 gem 'will_paginate', git: 'https://github.com/keylimetoolbox/will_paginate.git', branch: 'order_of_locales'
@@ -67,7 +67,7 @@ group :development do
 end
 
 group :test do
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'shoulda-matchers'
   gem 'capybara-select2', git: 'https://github.com/goodwill/capybara-select2.git'
   gem 'capybara'

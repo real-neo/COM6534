@@ -1,32 +1,32 @@
 require 'rails_helper'
 
 describe PurchaseTotaller do
-  let!(:student1) { FactoryGirl.create(:student, givenname: 'Stu 1') }
-  let!(:student2) { FactoryGirl.create(:student, givenname: 'Stu 2') }
-  let!(:student3) { FactoryGirl.create(:student, givenname: 'Stu 3') }
+  let!(:student1) { FactoryBot.create(:student, givenname: 'Stu 1') }
+  let!(:student2) { FactoryBot.create(:student, givenname: 'Stu 2') }
+  let!(:student3) { FactoryBot.create(:student, givenname: 'Stu 3') }
 
 
   before do
-    stationary = FactoryGirl.create(:consumable, category: :stationary, name: 'Pencil')
-    chemical   = FactoryGirl.create(:consumable, category: :chemical,   name: 'H2O')
-    hardware   = FactoryGirl.create(:consumable, category: :hardware,   name: 'Drill bit')
-    wearable   = FactoryGirl.create(:consumable, category: :wearable,   name: 'Gloves')
-    disposable = FactoryGirl.create(:consumable, category: :disposable, name: 'Agar')
+    stationary = FactoryBot.create(:consumable, category: :stationary, name: 'Pencil')
+    chemical   = FactoryBot.create(:consumable, category: :chemical,   name: 'H2O')
+    hardware   = FactoryBot.create(:consumable, category: :hardware,   name: 'Drill bit')
+    wearable   = FactoryBot.create(:consumable, category: :wearable,   name: 'Gloves')
+    disposable = FactoryBot.create(:consumable, category: :disposable, name: 'Agar')
 
 
     # Stu 1 - 15 Stationary
-    FactoryGirl.create(:purchase, consumable: stationary, amount: 10, account: student1)
-    FactoryGirl.create(:purchase, consumable: stationary, amount: 5,  account: student1)
+    FactoryBot.create(:purchase, consumable: stationary, amount: 10, account: student1)
+    FactoryBot.create(:purchase, consumable: stationary, amount: 5,  account: student1)
 
     # Stu 2 - 9 Stationary, 1 chemical
-    FactoryGirl.create(:purchase, consumable: stationary, amount: 5 , account: student2)
-    FactoryGirl.create(:purchase, consumable: stationary, amount: 9, account: student2)
-    FactoryGirl.create(:purchase, consumable: chemical,   amount: 1,  account: student2)
+    FactoryBot.create(:purchase, consumable: stationary, amount: 5 , account: student2)
+    FactoryBot.create(:purchase, consumable: stationary, amount: 9, account: student2)
+    FactoryBot.create(:purchase, consumable: chemical,   amount: 1,  account: student2)
 
     # Stu 2 - 4 hardware, 6 wearable, 2 disposable
-    FactoryGirl.create(:purchase, consumable: hardware,   amount: 4,  account: student3)
-    FactoryGirl.create(:purchase, consumable: wearable,   amount: 6,  account: student3)
-    FactoryGirl.create(:purchase, consumable: disposable, amount: 2,  account: student3)
+    FactoryBot.create(:purchase, consumable: hardware,   amount: 4,  account: student3)
+    FactoryBot.create(:purchase, consumable: wearable,   amount: 6,  account: student3)
+    FactoryBot.create(:purchase, consumable: disposable, amount: 2,  account: student3)
   end
 
   subject { described_class.new Purchase.all }

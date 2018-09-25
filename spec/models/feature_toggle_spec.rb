@@ -2,7 +2,7 @@
 #
 # Table name: feature_toggles
 #
-#  id         :integer          not null, primary key
+#  id         :bigint(8)        not null, primary key
 #  identifier :string
 #  name       :string
 #  enabled    :boolean          default(FALSE)
