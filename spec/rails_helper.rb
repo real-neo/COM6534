@@ -16,9 +16,16 @@ require 'rspec/rails'
 # option on the command line or in ~/.rspec, .rspec or `.rspec-local`.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
+# If the database needs migration, purge the test database and then migrate it
+# This *may* be fixed in Rails 5, but it's broken in at least Rails 4.1
+if ActiveRecord::Base.connection.migration_context.needs_migration?
+  puts('Loading schema into test database...')
+  ActiveRecord::Tasks::DatabaseTasks.load_schema_current
+end
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  config.include FactoryBot::Syntax::Methods
   config.include Shoulda::Matchers::ActiveRecord
   config.include Shoulda::Matchers::ActiveModel
 
@@ -117,7 +124,7 @@ class WarningSuppressor
     end
   end
 end
-Capybara.server = :webrick
+
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, phantomjs_logger: WarningSuppressor)
 end
@@ -126,6 +133,7 @@ Capybara.register_server :thin do |app, port|
   require 'rack/handler/thin'
   Rack::Handler::Thin.run(app, Port: port)
 end
+Capybara.server = :thin
 
 def wait_for_ajax
   Timeout.timeout(Capybara.default_max_wait_time) do
