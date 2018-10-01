@@ -1,60 +1,6 @@
-GIT
-  remote: git@git.shefcompsci.org.uk:gems/epi_cas.git
-  revision: 97e6f711e18db3e8d4b953e2874276a7a94c6d1e
-  specs:
-    epi_cas (1.3.21)
-      devise (>= 3.2.0)
-      devise_cas_authenticatable (>= 1.3.5)
-      devise_ldap_authenticatable (>= 0.8.3)
-      rails
-      settingslogic (>= 2.0.9)
-      sheffield_ldap_lookup (>= 0.0.4)
-
-GIT
-  remote: https://github.com/drapergem/draper.git
-  revision: ed62f5555148b997eeb9feb365dd3dffcdb3d903
-  specs:
-    draper (3.0.1)
-      actionpack (~> 5.0)
-      activemodel (~> 5.0)
-      activemodel-serializers-xml (~> 1.0)
-      activesupport (~> 5.0)
-      request_store (~> 1.0)
-
-GIT
-  remote: https://github.com/epigenesys/airbrake.git
-  revision: 3b8ba768a7fcefdcd0afaf3d42d74537bf800701
-  branch: airbrake-v4
-  specs:
-    airbrake (4.3.10)
-      builder
-      multi_json
-
-GIT
-  remote: https://github.com/epigenesys/epi_deploy.git
-  revision: 94125cb8b8fc99ee9398c2e5b79bd793799b7798
-  specs:
-    epi_deploy (2.0.9)
-      git (~> 1.2)
-      slop (~> 3.6)
-
-GIT
-  remote: https://github.com/goodwill/capybara-select2.git
-  revision: 585192e4bb0db8d52e761ab68f08c17294806447
-  specs:
-    capybara-select2 (1.0.1)
-      capybara
-      rspec
-
-GIT
-  remote: https://github.com/keylimetoolbox/will_paginate.git
-  revision: 440e4d55b77e03af1d94ac9c08fe1de12e51e89e
-  branch: order_of_locales
-  specs:
-    will_paginate (3.1.0)
-
 GEM
   remote: https://rubygems.org/
+  remote: https://gems.shefcompsci.org.uk/
   specs:
     actioncable (5.2.1)
       actionpack (= 5.2.1)
@@ -92,7 +38,7 @@ GEM
       activemodel (= 5.2.1)
       activesupport (= 5.2.1)
       arel (>= 9.0)
-    activerecord-session_store (1.1.1)
+    activerecord-session_store (1.1.1.1)
       actionpack (>= 4.0)
       activerecord (>= 4.0)
       multi_json (~> 1.11, >= 1.11.2)
@@ -109,6 +55,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    airbrake (4.3.10)
+      builder
+      multi_json
     airbrussh (1.3.0)
       sshkit (>= 1.6.1, != 1.7.0)
     annotate (2.7.4)
@@ -119,6 +68,8 @@ GEM
       execjs
     bcrypt (3.1.12)
     bindex (0.5.0)
+    bootsnap (1.3.2)
+      msgpack (~> 1.0)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -150,6 +101,9 @@ GEM
       rack (>= 1.6.0)
       rack-test (>= 0.6.3)
       xpath (~> 3.1)
+    capybara-select2 (1.0.1)
+      capybara
+      rspec
     chronic (0.10.2)
     cliver (0.3.2)
     coffee-rails (4.2.2)
@@ -185,6 +139,22 @@ GEM
       net-ldap (>= 0.16.0)
     diff-lcs (1.3)
     docile (1.3.1)
+    draper (3.0.1)
+      actionpack (~> 5.0)
+      activemodel (~> 5.0)
+      activemodel-serializers-xml (~> 1.0)
+      activesupport (~> 5.0)
+      request_store (~> 1.0)
+    epi_cas (1.3.21)
+      devise (>= 3.2.0)
+      devise_cas_authenticatable (>= 1.3.5)
+      devise_ldap_authenticatable (>= 0.8.3)
+      rails
+      settingslogic (>= 2.0.9)
+      sheffield_ldap_lookup (>= 0.0.4)
+    epi_deploy (2.0.10)
+      git (~> 1.5)
+      slop (~> 3.6)
     epi_js (1.0.10)
       bootstrap-sass
       coffee-rails (>= 3.2)
@@ -246,6 +216,7 @@ GEM
     mini_mime (1.0.1)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
+    msgpack (1.2.4)
     multi_json (1.13.1)
     net-ldap (0.16.1)
     net-scp (1.2.1)
@@ -399,6 +370,7 @@ GEM
     websocket-extensions (0.1.3)
     whenever (0.10.0)
       chronic (>= 0.6.3)
+    will_paginate (3.1.6)
     xpath (3.1.0)
       nokogiri (~> 1.8)
 
@@ -406,9 +378,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-session_store
+  activerecord-session_store!
   airbrake!
   annotate
+  bootsnap
   bootstrap-sass
   bootstrap-will_paginate
   byebug
@@ -429,7 +402,7 @@ DEPENDENCIES
   devise
   devise_cas_authenticatable
   devise_ldap_authenticatable
-  draper!
+  draper
   epi_cas!
   epi_deploy!
   epi_js
@@ -461,10 +434,10 @@ DEPENDENCIES
   uglifier
   web-console
   whenever
-  will_paginate!
+  will_paginate
 
 RUBY VERSION
    ruby 2.4.4p296
 
 BUNDLED WITH
-   1.16.2
+   1.16.5

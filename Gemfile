@@ -1,13 +1,21 @@
 source "https://rubygems.org"
 ruby '2.4.4'
+
+source "https://gems.shefcompsci.org.uk" do
+  gem 'activerecord-session_store'
+  gem 'airbrake'
+  gem 'epi_cas'
+  gem 'epi_deploy', group: :development
+  gem 'capybara-select2', group: :test
+end
+
 gem 'rails', '5.2.1'
+gem 'bootsnap'
 gem 'responders'
-gem 'activerecord-session_store'
+gem 'thin'
 
 gem 'sqlite3', group: [:development, :test]
 gem 'pg'
-
-gem 'airbrake', git: 'https://github.com/epigenesys/airbrake.git', branch: 'airbrake-v4'
 
 gem 'haml-rails'
 gem 'sass-rails'
@@ -22,20 +30,18 @@ gem 'epi_js'
 gem 'switchery-rails'
 
 gem 'simple_form'
-gem 'draper', git: 'https://github.com/drapergem/draper.git'
+gem 'draper'
 gem 'ransack'
 
 gem 'polyamorous'
 
-# Waiting https://github.com/mislav/will_paginate/pull/465 to be merged in
-gem 'will_paginate', git: 'https://github.com/keylimetoolbox/will_paginate.git', branch: 'order_of_locales'
+gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 
 gem 'devise'
 gem 'devise_ldap_authenticatable'
 gem 'devise_cas_authenticatable'
 gem 'cancancan'
-gem 'epi_cas', git: 'git@git.shefcompsci.org.uk:gems/epi_cas.git'
 
 gem 'whenever'
 gem 'delayed_job'
@@ -58,9 +64,7 @@ group :development do
   gem 'capistrano-bundler', require: false
   gem 'capistrano-rvm', require: false
   gem 'capistrano-passenger', require: false
-  gem 'epi_deploy', git: 'https://github.com/epigenesys/epi_deploy.git'
 
-  gem 'thin'
   gem 'eventmachine'
   gem 'letter_opener'
   gem 'annotate'
@@ -69,7 +73,6 @@ end
 group :test do
   gem 'factory_bot_rails'
   gem 'shoulda-matchers'
-  gem 'capybara-select2', git: 'https://github.com/goodwill/capybara-select2.git'
   gem 'capybara'
   gem 'poltergeist'
   gem 'rspec-instafail', require: false
