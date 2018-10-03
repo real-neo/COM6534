@@ -1,6 +1,5 @@
 ## Application configuration
 set :application,             'sciencestore'
-set :scm,                     :git
 set :repo_url,                'git@git.shefcompsci.org.uk:group-name/project-name.git'
 set :linked_files,            fetch(:linked_files,  fetch(:env_links, [])).push('config/database.yml', 'config/secrets.yml')
 set :linked_dirs,             fetch(:linked_dirs, []).push('log', 'tmp/pids', 'uploads')
@@ -9,7 +8,7 @@ set :assets_dependencies,     %w(app/assets lib/assets vendor/assets)
 
 ## Ruby configuration
 set :rvm_type,                    :system
-set :rvm_ruby_version,            '2.3.1'
+set :rvm_ruby_version,            '2.4.4'
 set :rvm_path,                    '/usr/local/rvm'
 
 # Currently Passenger is installed against the 'default' Ruby version

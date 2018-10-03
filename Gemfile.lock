@@ -152,7 +152,7 @@ GEM
       rails
       settingslogic (>= 2.0.9)
       sheffield_ldap_lookup (>= 0.0.4)
-    epi_deploy (2.0.10)
+    epi_deploy (2.0.11)
       git (~> 1.5)
       slop (~> 3.6)
     epi_js (1.0.10)
