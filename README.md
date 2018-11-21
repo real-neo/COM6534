@@ -1,20 +1,14 @@
-# ScienceStore
+# Team 10 Project
 ---
 
-### Description
-Describe your app here...
+## Description
 
-### Significant Features/Technology
-The system has the following:
+COM6534 Genesys Team 10 Project
 
-* Some significant thing...
-* Another one...
+## Notes / 注意事项
 
-### Special Development Pre-requisites
-None.
+Before you commit any files, please do below things:
+在你提交任何改动之前，请务必做了以下的事情：
 
-### Deployment
-*QA -> Demo -> Production* using the `epi-deploy` gem.
-
-### Customer Contact
-Some Customer <some.customer@epigenesys.co.uk>
+1. `git config --global user.name "Your Name"`
+2. `git config --global user.name "Your Sheffield Email"`
