@@ -8,7 +8,10 @@ source "https://gems.shefcompsci.org.uk" do
   gem 'epi_deploy', group: :development
   gem 'capybara-select2', group: :test
 end
-
+gem 'ransack'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
+gem 'seo_helper'
 gem 'rails', '5.2.1'
 gem 'bootsnap'
 gem 'responders'

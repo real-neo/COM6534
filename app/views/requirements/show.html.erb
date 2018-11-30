@@ -1,0 +1,9 @@
+
+<h1 class="text-center"> Search Result</h1>
+
+<% @requirements.each do |f|%>
+  <p>Your project </p>
+  <%= f.projectname %>
+  <p> is </p>
+  <%=f.state%>
+<% end %>

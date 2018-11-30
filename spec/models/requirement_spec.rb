@@ -1,19 +1,20 @@
 # == Schema Information
 #
-# Table name: consumables
+# Table name: requirements
 #
 #  id              :integer          not null, primary key
-#  name            :string
-#  description     :string
-#  stock_level     :integer
-#  min_stock_level :integer
+#  company_name    :string
+#  email           :string
+#  project_name    :string
+#  project_details :string
+#  budget          :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  category        :integer
+#  state           :string           default("waiting")
 #
 
 require 'rails_helper'
 
-RSpec.describe Consumable, type: :model do
+RSpec.describe Requirement, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
 end

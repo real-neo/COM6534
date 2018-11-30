@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2016_10_14_140132) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 2018_11_29_213630) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -70,14 +67,25 @@ ActiveRecord::Schema.define(version: 2016_10_14_140132) do
   end
 
   create_table "purchases", force: :cascade do |t|
-    t.bigint "account_id"
-    t.bigint "consumable_id"
+    t.integer "account_id"
+    t.integer "consumable_id"
     t.integer "amount"
     t.text "reason"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_purchases_on_account_id"
     t.index ["consumable_id"], name: "index_purchases_on_consumable_id"
+  end
+
+  create_table "requirements", force: :cascade do |t|
+    t.string "company_name"
+    t.string "email"
+    t.string "project_name"
+    t.string "project_details"
+    t.string "budget"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "state", default: "waiting"
   end
 
   create_table "sessions", force: :cascade do |t|

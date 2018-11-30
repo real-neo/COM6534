@@ -1,0 +1,21 @@
+<head>
+<meta charset="utf-8">
+<title>New Requirements</title>
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<h1 class="text-center"> New Requirement </h1>
+  <div style="padding: 200px 250px 10px;">
+     <%= simple_form_for @requirement do |f| %>
+      <%=f.input :company_name %>
+      <%= f.input :email, input_html: { autocomplete: 'email' } %>
+      <%= f.input :project_name %>
+      <%= f.input :project_details %>
+      <%= f.input :budget %>
+      <%= f.button :submit %>
+
+
+
+     <% end %>
+  </div>

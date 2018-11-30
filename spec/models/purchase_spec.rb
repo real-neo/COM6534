@@ -2,9 +2,9 @@
 #
 # Table name: purchases
 #
-#  id            :bigint(8)        not null, primary key
-#  account_id    :bigint(8)
-#  consumable_id :bigint(8)
+#  id            :integer          not null, primary key
+#  account_id    :integer
+#  consumable_id :integer
 #  amount        :integer
 #  reason        :text
 #  created_at    :datetime         not null

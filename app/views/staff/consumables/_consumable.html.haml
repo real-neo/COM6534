@@ -1,7 +1,0 @@
-%tr[consumable.object]
-  %td= consumable.name
-  %td= consumable.stock_level
-  %td= consumable.min_stock_level
-  %td= consumable.display_amount_until_reorder
-  %td
-    .pull-right=link_to 'Edit', edit_staff_consumable_path(consumable), title: "Edit stock level for #{consumable.name}", class: 'btn btn-default btn-xs ajax-modal'
