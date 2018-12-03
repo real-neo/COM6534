@@ -1,6 +1,7 @@
 class RequirementsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:new, :create, :show]
   before_action :authenticate_user!, only: [:index]
+  before_action :set_requirement, only: [:show, :accept, :decline, :destroy]
   before_action :validate_search_key, only: [:search]
 
   def index
@@ -18,7 +19,6 @@ class RequirementsController < ApplicationController
   end
 
   def show
-    @requirement = Requirement.find(params[:id])
   end
 
   def create
@@ -30,6 +30,26 @@ class RequirementsController < ApplicationController
       flash.now[:alert] = 'Failed to save'
       render :new
     end
+  end
+
+  def update
+  end
+
+  def accept
+    @requirement.state = 'Accepted'
+    @requirement.save
+    redirect_to @requirement, notice: 'Accept successfully.'
+  end
+
+  def decline
+    @requirement.state = 'Waiting'
+    @requirement.save
+    redirect_to @requirement, notice: 'Decline successfully.'
+  end
+
+  def destroy
+    @requirement.destroy
+    redirect_to requirements_url, notice: 'Project was successfully destroyed.'
   end
 
   # if @query_string.present?
@@ -49,10 +69,14 @@ class RequirementsController < ApplicationController
   end
 
   def search_criteria(query_string)
-    { id_cont: query_string }
+    {id_cont: query_string}
   end
 
   private
+
+  def set_requirement
+    @requirement = Requirement.find(params[:id])
+  end
 
   def requirement_params
     params.require(:requirement).permit(:company_name, :email, :project_name,

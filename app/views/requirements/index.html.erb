@@ -19,6 +19,8 @@
     <th>Budget</th>
     <th>State</th>
     <th></th>
+    <th></th>
+    <th></th>
   </tr>
   <% @requirements.each do |f| %>
     <tr>
@@ -29,6 +31,12 @@
       <td><%= f.budget %></td>
       <td><%= f.state %></td>
       <td><%= link_to 'Show', requirement_path(f) %></td>
+      <% if f.state == 'Waiting' %>
+        <td><%= link_to 'Accept', accept_requirement_path(f), data: { confirm: 'Are you sure?' } %></td>
+      <% else %>
+        <td><%= link_to 'Decline', decline_requirement_path(f), data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+      <td><%= link_to 'Delete', f, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
   </table>
