@@ -1,0 +1,16 @@
+<h1>Hello, Rails!</h1>
+<%= link_to 'Projects List', controller: 'requirements' %>
+
+<div align="center">
+  <%= form_tag(requirements_path, method: :get) do %>
+    <%= text_field_tag :id %>
+    <%= submit_tag 'Track' %>
+  <% end %>
+</div>
+
+<div align="center">
+  <%= link_to 'Upload your new project', new_requirement_path %>
+  <!--  <a href="/requirements/new">-->
+  <!--    <button type="button" class="btn btn-primary btn-lg">Upload</button>-->
+  <!--  </a>-->
+</div>

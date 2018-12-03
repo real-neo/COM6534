@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :update_headers_to_disable_caching
   before_action :ie_warning
+  before_action :authenticate_user!, except: [:index, :new]
 
   ## The following are used by our Responder service classes so we can access
   ## the instance variable for the current resource easily via a standard method
@@ -28,7 +29,7 @@ class ApplicationController < ActionController::Base
   end
 
   # IE over HTTPS will not download if browser caching is off, so allow browser caching when sending files
-  def send_file(file, opts={})
+  def send_file(file, opts = {})
     response.headers['Cache-Control'] = 'private, proxy-revalidate' # Still prevent proxy caching
     response.headers['Pragma'] = 'cache'
     response.headers['Expires'] = '0'
@@ -36,13 +37,14 @@ class ApplicationController < ActionController::Base
   end
 
   private
-    def update_headers_to_disable_caching
-      response.headers['Cache-Control'] = 'no-cache, no-cache="set-cookie", no-store, private, proxy-revalidate'
-      response.headers['Pragma'] = 'no-cache'
-      response.headers['Expires'] = '-1'
-    end
 
-    def ie_warning
-      return redirect_to(ie_warning_path) if request.user_agent.to_s =~ /MSIE [6-7]/ && request.user_agent.to_s !~ /Trident\/7.0/
-    end
+  def update_headers_to_disable_caching
+    response.headers['Cache-Control'] = 'no-cache, no-cache="set-cookie", no-store, private, proxy-revalidate'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '-1'
+  end
+
+  def ie_warning
+    return redirect_to(ie_warning_path) if request.user_agent.to_s =~ /MSIE [6-7]/ && request.user_agent.to_s !~ /Trident\/7.0/
+  end
 end
