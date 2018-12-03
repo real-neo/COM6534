@@ -14,6 +14,10 @@ ActiveRecord::Schema.define(version: 2018_11_29_213630) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -21,16 +25,8 @@ ActiveRecord::Schema.define(version: 2018_11_29_213630) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "username"
-    t.string "uid"
-    t.string "mail"
-    t.string "ou"
-    t.string "dn"
-    t.string "sn"
-    t.string "givenname"
-    t.integer "role"
-    t.index ["email"], name: "index_accounts_on_email"
-    t.index ["username"], name: "index_accounts_on_username"
+    t.index ["email"], name: "index_accounts_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
   end
 
   create_table "consumables", force: :cascade do |t|
@@ -56,25 +52,6 @@ ActiveRecord::Schema.define(version: 2018_11_29_213630) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
-  end
-
-  create_table "feature_toggles", force: :cascade do |t|
-    t.string "identifier"
-    t.string "name"
-    t.boolean "enabled", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "purchases", force: :cascade do |t|
-    t.integer "account_id"
-    t.integer "consumable_id"
-    t.integer "amount"
-    t.text "reason"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["account_id"], name: "index_purchases_on_account_id"
-    t.index ["consumable_id"], name: "index_purchases_on_consumable_id"
   end
 
   create_table "requirements", force: :cascade do |t|
