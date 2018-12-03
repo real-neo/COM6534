@@ -10,7 +10,7 @@
 #  budget          :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  state           :string           default("waiting")
+#  state           :string           default("Waiting")
 #
 
 class Requirement < ApplicationRecord

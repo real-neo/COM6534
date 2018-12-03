@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2018_12_03_152538) do
     t.string "budget"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "state", default: "waiting"
+    t.string "state", default: "Waiting"
   end
 
   create_table "sessions", force: :cascade do |t|
