@@ -1,8 +1,30 @@
-<h1 class="text-center">Show project</h1>
+<h1 class="text-left">Show project</h1>
+<div style="padding: 20px 250px 10px;"></div>
+<table class="table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th>Company Name</th>
+    <th>Email</th>
+    <th>Project Name</th>
+    <th>Details</th>
+    <th>Budget</th>
+    <th>State</th>
 
-<p>Your project</p>
-<%= @requirement.project_name %>
-<p> is </p>
-<%= @requirement.state %>
+  </tr>
+    <tr>
+      <td><%= @requirement.company_name %></td>
+      <td><%= @requirement.email %></td>
+      <td><%= @requirement.project_name %></td>
+      <td><%= @requirement.project_details %></td>
+      <td><%= @requirement.budget %></td>
+      <td><%= @requirement.state %></td>
+    </tr>
+  </table>
 
-<%= link_to 'Back', requirements_path %>
+<div style="padding: 100px 250px 10px;"></div>
+<div align="center", style="font-size: 30px">
+<p>Your project <%= @requirement.project_name %> is <%= @requirement.state %>
+
+</p>
+<a href="/requirements"><button type="button" class="btn btn-primary ">Back</button></a>
+</div>

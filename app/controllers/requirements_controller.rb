@@ -25,7 +25,7 @@ class RequirementsController < ApplicationController
     @requirement = Requirement.new(requirement_params)
 
     if @requirement.save
-      redirect_to welcome_index_path, notice: 'Upload project successfully!'
+      redirect_to @requirement, notice: 'Upload project successfully!'
     else
       flash.now[:alert] = 'Failed to save'
       render :new
