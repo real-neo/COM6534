@@ -30,17 +30,23 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="/">Home Page</a>
+
+      <% if user_signed_in? %>
+        <%= link_to "View my projects", records_path, method: :get, :class => 'navbar-brand' %>
+        <%= link_to "View all projects", requirements_path, method: :get, :class => 'navbar-brand' %>
+        <% if current_user.admin? %>
+          <%= link_to "View all modules", mods_path, method: :get, :class => 'navbar-brand' %>
+          <%= link_to "View all module leaders", users_path, method: :get, :class => 'navbar-brand' %>
+        <% end %>
+      <% end %>
     </div>
     <div class="nav navbar-nav navbar-header navbar-right ">
       <% if user_signed_in? %>
-        <li>Logged in as <strong><%= current_user.username %></strong>.</li>
-        <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></li>
+        <li class="navbar-brand">Logged in as <strong><%= current_user.username %></strong>.</li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-brand' %></li>
       <% else %>
-        <li>
-        <%= link_to records_path, :class => 'navbar-link' do %>
-          <%= content_tag :span, "Login", :class => "glyphicon glyphicon-user" %>
-        <% end %>
-        </li>
+        <li class="navbar-brand"></li>
+        <li><%= link_to "Login", records_path, :class => 'navbar-brand'%></li>
       <% end %>
     </div>
   </div>

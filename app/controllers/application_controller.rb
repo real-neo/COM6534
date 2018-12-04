@@ -38,6 +38,12 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def isAdmin
+    unless current_user.admin?
+      redirect_to records_path, notice: 'You do not have permission.'
+    end
+  end
+
   def update_headers_to_disable_caching
     response.headers['Cache-Control'] = 'no-cache, no-cache="set-cookie", no-store, private, proxy-revalidate'
     response.headers['Pragma'] = 'no-cache'

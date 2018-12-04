@@ -1,5 +1,6 @@
 class ModsController < ApplicationController
   before_action :set_mod, only: [:show, :edit, :update, :destroy]
+  before_action :isAdmin
 
   # GET /mods
   def index
