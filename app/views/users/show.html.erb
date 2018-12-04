@@ -1,0 +1,26 @@
+<p id="notice">
+  <%= notice %>
+
+
+<table class="table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>admin</th>
+    <th>mod</th>
+  </tr>
+
+
+    <tr>
+      <td><%= @users.username %></td>
+      <td><%= @users.email %></td>
+      <td><%= @users.admin %></td>
+      <td><%= @users.mod_id %></td>
+    </tr>
+
+
+  </table>
+<div align="center">
+  <%= link_to 'Edit', edit_user_path(@user) %>  <%= link_to 'Back', users_path %>
+</div>
