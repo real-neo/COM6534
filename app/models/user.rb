@@ -19,6 +19,7 @@
 #  dn                 :string
 #  sn                 :string
 #  givenname          :string
+#  mod_id             :string
 #
 # Indexes
 #
@@ -27,7 +28,8 @@
 #
 
 class User < ApplicationRecord
+  belongs_to :mod, optional: true
   include EpiCas::DeviseHelper
-  
+
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   end

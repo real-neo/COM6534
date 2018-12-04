@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <title></title>
+</head>
+<body>
+
+<table class="table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Code</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @mods.each do |mod| %>
+    <tr>
+      <td><%= mod.name %></td>
+      <td><%= mod.code %></td>
+      <td><%= link_to 'Show', mod %></td>
+      <td><%= link_to 'Edit', edit_mod_path(mod) %></td>
+      <td><%= link_to 'Destroy', mod, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </table>
+<%= link_to 'New Mod', new_mod_path%>
+
+</body>
+</html>

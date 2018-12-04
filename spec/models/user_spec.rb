@@ -19,6 +19,7 @@
 #  dn                 :string
 #  sn                 :string
 #  givenname          :string
+#  mod_id             :string
 #
 # Indexes
 #

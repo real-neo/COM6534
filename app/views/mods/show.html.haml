@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @mod.name
+%p
+  %b Code:
+  = @mod.code
+
+  %p
+    %b Users:
+    = @mod.users.map(&:username).join(',')
+
+
+= link_to 'Back', mods_path
