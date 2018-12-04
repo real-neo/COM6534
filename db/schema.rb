@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(version: 2018_12_03_224911) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "records", force: :cascade do |t|
+    t.string "username"
+    t.string "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "requirements", force: :cascade do |t|
     t.string "company_name"
     t.string "email"

@@ -38,12 +38,19 @@ class RequirementsController < ApplicationController
   def accept
     @requirement.state = 'Accepted'
     @requirement.save
+
+    new_record = Record.new
+    new_record.username = current_user.username
+    new_record.project_id = @requirement.id
+    new_record.save
     redirect_to @requirement, notice: 'Accept successfully.'
   end
 
   def decline
     @requirement.state = 'Waiting'
     @requirement.save
+
+    # TODO destroy record
     redirect_to @requirement, notice: 'Decline successfully.'
   end
 
