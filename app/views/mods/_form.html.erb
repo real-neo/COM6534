@@ -1,0 +1,10 @@
+<%= simple_form_for(@mod) do |f| %>
+  <%= f.error_notification %>
+  <div style="padding: 50px 250px 10px;" , class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :code %>
+  </div>
+  <div class="form-actions", align="center">
+    <%= f.button :submit %>
+  </div>
+<% end %>

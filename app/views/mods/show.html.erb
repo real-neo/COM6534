@@ -1,0 +1,19 @@
+<p id="notice">
+  <%= notice %>
+</p>
+  <div align="center", style="font-size: 30px">
+<p>
+  <b>Name:</b>
+  <%= @mod.name %>
+</p>
+<p>
+  <b>Code:</b>
+  <%= @mod.code %>
+  <p>
+    <b>Users:</b>
+    <%= @mod.users.map(&:username).join(',') %>
+  </p>
+</p>
+
+<%= link_to 'Back', mods_path %>
+</div>

@@ -1,12 +1,18 @@
 <% # frozen_string_literal: true %>
+<div style="font-size: 40px">
 <%= simple_form_for(@user) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
   <%= @user.username %>
-  <div class="form-inputs">
-    <%= f.input :admin %><%= f.association :mod %>
+</div>
+<div style="font-size: 20px">
+  <div style="padding: 150px 250px 10px;">
+    <div class="form-inputs">
+      <%= f.input :admin %><%= f.association :mod %>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+    <% end %>
   </div>
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+</div>
