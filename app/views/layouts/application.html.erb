@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Projects Platform</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <title>epiGenesys</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
@@ -28,7 +32,11 @@
         <li>Logged in as <strong><%= current_user.username %></strong>.</li>
         <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></li>
       <% else %>
-        <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link' %></li>
+        <li>
+        <%= link_to new_user_session_path, :class => 'navbar-link' do %>
+          <%= content_tag :span, "Login", :class => "glyphicon glyphicon-user" %>
+        <% end %>
+        </li>
       <% end %>
     </div>
   </div>

@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <title></title>
-</head>
-<body>
-
 <table class="table table-striped table-bordered">
   <thead>
   <tr>
@@ -18,6 +7,8 @@
     <th>Details</th>
     <th>Budget</th>
     <th>State</th>
+    <th></th>
+    <th></th>
     <th></th>
   </tr>
   <% @requirements.each do |f| %>
@@ -29,9 +20,12 @@
       <td><%= f.budget %></td>
       <td><%= f.state %></td>
       <td><%= link_to 'Show', requirement_path(f) %></td>
+      <% if f.state == 'Waiting' %>
+        <td><%= link_to 'Accept', accept_requirement_path(f), data: { confirm: 'Are you sure?' } %></td>
+      <% else %>
+        <td><%= link_to 'Decline', decline_requirement_path(f), data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+      <td><%= link_to 'Delete', f, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
   </table>
-
-</body>
-</html>
