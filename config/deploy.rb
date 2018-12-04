@@ -1,6 +1,6 @@
 ## Application configuration
-set :application,             'sciencestore'
-set :repo_url,                'git@git.shefcompsci.org.uk:group-name/project-name.git'
+set :application,             'project'
+set :repo_url,                'git@git.shefcompsci.org.uk:com6534-2018-19/team10/project.git'
 set :linked_files,            fetch(:linked_files,  fetch(:env_links, [])).push('config/database.yml', 'config/secrets.yml')
 set :linked_dirs,             fetch(:linked_dirs, []).push('log', 'tmp/pids', 'uploads')
 # set the locations to look for changed assets to determine whether to precompile
