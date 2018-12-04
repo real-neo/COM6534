@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id                 :integer          not null, primary key
+#  mod_id             :string
 #  admin              :boolean
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
@@ -19,11 +20,11 @@
 #  dn                 :string
 #  sn                 :string
 #  givenname          :string
-#  mod_id             :string
 #
 # Indexes
 #
 #  index_users_on_email     (email)
+#  index_users_on_mod_id    (mod_id)
 #  index_users_on_username  (username)
 #
 

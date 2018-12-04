@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_03_224911) do
+ActiveRecord::Schema.define(version: 2018_12_03_222337) do
 
   create_table "mods", force: :cascade do |t|
     t.string "name"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2018_12_03_224911) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "mod_id"
     t.boolean "admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -63,8 +64,8 @@ ActiveRecord::Schema.define(version: 2018_12_03_224911) do
     t.string "dn"
     t.string "sn"
     t.string "givenname"
-    t.string "mod_id"
     t.index ["email"], name: "index_users_on_email"
+    t.index ["mod_id"], name: "index_users_on_mod_id"
     t.index ["username"], name: "index_users_on_username"
   end
 
