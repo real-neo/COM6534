@@ -1,6 +1,5 @@
 class RequirementsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:new, :create, :show]
-  before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: [:index, :new, :create, :show]
   before_action :set_requirement, only: [:show, :accept, :decline, :destroy]
   before_action :validate_search_key, only: [:search]
 

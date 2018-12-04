@@ -1,24 +1,26 @@
-<div style="padding: 120px 250px 10px;", align="center">
-<h1>Projects Platform</h1></p>
-<h1>epiGenesys</h1>
+<div style="padding: 120px 250px 10px;" , align="center">
+  <h1>Projects Platform</h1></p>
+  <h1>epiGenesys</h1>
 </div>
 
+<div style="padding: 70px;">
+  <div align="center">
+    <%= form_tag(requirements_path, method: :get) do %>
+      <%= text_field_tag :id %>
+      <%= submit_tag 'Track' %>
+    <% end %>
+  </div>
 
-<div style="padding: 70px;" >
-<div align="center">
-<%= form_tag(requirements_path, method: :get) do %>
-<%= text_field_tag :id %>
-<%= submit_tag 'Track' %>
-<% end %>
-</div>
-
-<div style="padding: 100px 250px 10px;", align="center">
-  <a href="/requirements/new"><button type="button" class="btn btn-primary ">Upload your new project</button></a>
-  <!-- <%= link_to 'Upload your new project', new_requirement_path %> -->
-  <!--  <a href="/requirements/new">-->
-  <!--    <button type="button" class="btn btn-primary btn-lg">Upload</button>-->
-  <!--  </a>-->
-</div>
-<div align="center", style="font-size: 20px">
-<%= link_to 'Projects List', controller: 'requirements' %>
+  <div style="padding: 100px 250px 10px;" , align="center">
+    <a href="/requirements/new">
+      <button type="button" class="btn btn-primary ">Upload your new project</button>
+    </a>
+    <!-- <%= link_to 'Upload your new project', new_requirement_path %> -->
+    <!--  <a href="/requirements/new">-->
+    <!--    <button type="button" class="btn btn-primary btn-lg">Upload</button>-->
+    <!--  </a>-->
+  </div>
+<!--  <div align="center" , style="font-size: 20px">-->
+    <%#= link_to 'Projects List', controller: 'requirements' %>
+<!--  </div>-->
 </div>

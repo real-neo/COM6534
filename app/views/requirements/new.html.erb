@@ -1,4 +1,4 @@
-<h1 class="text-center">New Requirement</h1>
+<h1 class="text-center">New Project</h1>
 
 <div style="padding: 200px 250px 10px;">
   <%= simple_form_for @requirement do |f| %>
@@ -9,6 +9,5 @@
     <%= f.input :budget %>
     <%= f.button :submit %>
   <% end %>
+  <button class="btn btn-primary" onclick="goBack()">Go Back</button>
 </div>
-
-<%= link_to 'Back', requirements_path %>

@@ -8,9 +8,13 @@
   <title>epiGenesys</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script>
+      function goBack() {
+          window.history.back();
+      }
+  </script>
 </head>
 
 <body>
@@ -33,7 +37,7 @@
         <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></li>
       <% else %>
         <li>
-        <%= link_to new_user_session_path, :class => 'navbar-link' do %>
+        <%= link_to records_path, :class => 'navbar-link' do %>
           <%= content_tag :span, "Login", :class => "glyphicon glyphicon-user" %>
         <% end %>
         </li>
