@@ -45,16 +45,16 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="epi-dropdown-project" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Project</a>
           <div class="dropdown-menu" aria-labelledby="epi-dropdown-project">
-            <%= link_to "My projects", records_path, method: :get, :class => 'dropdown-item' %>
-            <%= link_to "All projects", requirements_path, method: :get, :class => 'dropdown-item' %>
+            <%= link_to("My projects", records_path, method: :get, class: 'dropdown-item') %>
+            <%= link_to("All projects", requirements_path, method: :get, class: 'dropdown-item') %>
           </div>
         </li>
         <% if current_user.admin? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="epi-dropdown-module" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Module</a>
             <div class="dropdown-menu" aria-labelledby="epi-dropdown-module">
-              <%= link_to "View all modules", mods_path, method: :get, :class => 'dropdown-item' %>
-              <%= link_to "View all module leaders", users_path, method: :get, :class => 'dropdown-item' %>
+              <%= link_to("View all modules", mods_path, method: :get, class: 'dropdown-item') %>
+              <%= link_to("View all module leaders", users_path, method: :get, class: 'dropdown-item') %>
             </div>
           </li>
         <% end %>
@@ -65,13 +65,13 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="epi-dropdown-log" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong><%= current_user.email %></strong></a>
           <div class="dropdown-menu" aria-labelledby="epi-dropdown-log">
-            <%= link_to "My profile", records_path, method: :get, :class => 'dropdown-item' %>
-            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'dropdown-item' %>
+            <%= link_to("My profile", records_path, method: :get, class: 'dropdown-item') %>
+            <%= link_to("Logout", destroy_user_session_path, method: :delete, class: 'dropdown-item') %>
           </div>
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Login", records_path, :class => 'nav-link' %>
+          <%= link_to("Login", records_path, class: 'nav-link') %>
         </li>
       <% end %>
     </ul>
