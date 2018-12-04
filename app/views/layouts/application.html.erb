@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <title>epiGenesys</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Genesys Team 10">
+  <meta name="description" content="This is a project platform.">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script>
       function goBack() {
           window.history.back();
@@ -17,7 +17,10 @@
   </script>
 </head>
 
-<body>
+<body class="bg-light">
+
+<!--TODO edit the alert to prevent being blocked-->
+
 <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
 <% end %>
@@ -26,32 +29,57 @@
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">Home Page</a>
-
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="#">epiGenesys</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#epi-navbar-head" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="epi-navbar-head">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
       <% if user_signed_in? %>
-        <%= link_to "View my projects", records_path, method: :get, :class => 'navbar-brand' %>
-        <%= link_to "View all projects", requirements_path, method: :get, :class => 'navbar-brand' %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="epi-dropdown-project" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Project</a>
+          <div class="dropdown-menu" aria-labelledby="epi-dropdown-project">
+            <%= link_to "My projects", records_path, method: :get, :class => 'dropdown-item' %>
+            <%= link_to "All projects", requirements_path, method: :get, :class => 'dropdown-item' %>
+          </div>
+        </li>
         <% if current_user.admin? %>
-          <%= link_to "View all modules", mods_path, method: :get, :class => 'navbar-brand' %>
-          <%= link_to "View all module leaders", users_path, method: :get, :class => 'navbar-brand' %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="epi-dropdown-module" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Module</a>
+            <div class="dropdown-menu" aria-labelledby="epi-dropdown-module">
+              <%= link_to "View all modules", mods_path, method: :get, :class => 'dropdown-item' %>
+              <%= link_to "View all module leaders", users_path, method: :get, :class => 'dropdown-item' %>
+            </div>
+          </li>
         <% end %>
       <% end %>
-    </div>
-    <div class="nav navbar-nav navbar-header navbar-right ">
+    </ul>
+    <ul class="navbar-nav">
       <% if user_signed_in? %>
-        <li class="navbar-brand">Logged in as <strong><%= current_user.givenname %></strong>.</li>
-        <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-brand' %></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="epi-dropdown-log" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong><%= current_user.email %></strong></a>
+          <div class="dropdown-menu" aria-labelledby="epi-dropdown-log">
+            <%= link_to "My profile", records_path, method: :get, :class => 'dropdown-item' %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'dropdown-item' %>
+          </div>
+        </li>
       <% else %>
-        <li class="navbar-brand"></li>
-        <li><%= link_to "Login", records_path, :class => 'navbar-brand'%></li>
+        <li class="nav-item">
+          <%= link_to "Login", records_path, :class => 'navbar-brand' %>
+        </li>
       <% end %>
-    </div>
+    </ul>
   </div>
 </nav>
 
-<%= yield %>
+<main role="main" class="container" style="padding-top:5rem;">
+
+  <%= yield %>
+
+</main>
 </body>
 </html>
