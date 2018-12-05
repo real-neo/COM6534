@@ -14,50 +14,55 @@
 
 <body class="bg-light">
 
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <a class="navbar-brand">
-    <%= image_tag('/epiGenesys-white.png', height: '32', alt: 'epiGenesys') %>
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#epi-navbar-head" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="epi-navbar-head">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="/">Home</a>
-      </li>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand scroll" style="padding-top: 9px">
+      <%= image_tag('/epiGenesys-black.png', height: '32', alt: 'epiGenesys') %>
+    </a>
+  </div>
+  <!-- Collection of nav links and other content for toggling -->
+  <div id="navbarCollapse" class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      <li><a href="/">Home</a></li>
       <% if user_signed_in? %>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="epi-dropdown-project" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Project</a>
-          <div class="dropdown-menu" aria-labelledby="epi-dropdown-project">
-            <%= link_to("My projects", records_path, method: :get, class: 'dropdown-item') %>
-            <%= link_to("All projects", requirements_path, method: :get, class: 'dropdown-item') %>
-          </div>
+        <li class="dropdown">
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#">Project <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to("My projects", records_path, method: :get) %></li>
+            <li><%= link_to("All projects", requirements_path, method: :get) %></li>
+          </ul>
         </li>
         <% if current_user.admin? %>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="epi-dropdown-module" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Module</a>
-            <div class="dropdown-menu" aria-labelledby="epi-dropdown-module">
-              <%= link_to("View all modules", mods_path, method: :get, class: 'dropdown-item') %>
-              <%= link_to("View all module leaders", users_path, method: :get, class: 'dropdown-item') %>
-            </div>
+          <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">Module <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to("View all modules", mods_path, method: :get) %></li>
+              <li><%= link_to("View all module leaders", users_path, method: :get) %></li>
+            </ul>
           </li>
         <% end %>
       <% end %>
     </ul>
-    <ul class="navbar-nav">
+    <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="epi-dropdown-log" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong><%= current_user.email %></strong></a>
-          <div class="dropdown-menu" aria-labelledby="epi-dropdown-log">
-            <%= link_to("My profile", records_path, method: :get, class: 'dropdown-item') %>
-            <%= link_to("Logout", destroy_user_session_path, method: :delete, class: 'dropdown-item') %>
-          </div>
+        <li class="dropdown">
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#"><strong><%= current_user.email %></strong>
+            <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to("My profile", records_path) %></li>
+            <li class="divider"></li>
+            <li><%= link_to("Logout", destroy_user_session_path, method: :delete) %></li>
+          </ul>
         </li>
       <% else %>
-        <li class="nav-item">
-          <%= link_to("Login", records_path, class: 'btn btn-primary') %>
-        </li>
+        <li><%= link_to("Login", records_path) %></li>
       <% end %>
     </ul>
   </div>
