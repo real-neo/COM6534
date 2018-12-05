@@ -82,6 +82,19 @@
 
   <%= yield %>
 
+  <footer class="container py-5">
+    <div class="row">
+      <div class="col-6 col-md">
+        <h5>Contact</h5>
+        <a href="tel:+441142221888">+44 (0)114 222 1888</a>
+        <a href="mailto:info@epigenesys.org.uk">info@epigenesys.org.uk</a>
+        <p>epiGenesys, Floor C, Cathedral Court<br>1 Vicar Lane, Sheffield, S1 2LT</p>
+      </div>
+      <div class="col-6 col-md">
+        <%= image_tag('/uos-logo.svg', height: '64', alt: 'UoS') %>
+      </div>
+    </div>
+  </footer>
 </main>
 </body>
 </html>
