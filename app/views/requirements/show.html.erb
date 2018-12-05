@@ -1,30 +1,35 @@
-<h1 class="text-left">Show project</h1>
-<div style="padding: 20px 250px 10px;"></div>
-<table class="table table-striped table-bordered">
-  <thead>
-  <tr>
-    <th>Company Name</th>
-    <th>Email</th>
-    <th>Project Name</th>
-    <th>Details</th>
-    <th>Budget</th>
-    <th>State</th>
-
-  </tr>
-    <tr>
-      <td><%= @requirement.company_name %></td>
-      <td><%= @requirement.email %></td>
-      <td><%= @requirement.project_name %></td>
-      <td><%= @requirement.project_details %></td>
-      <td><%= @requirement.budget %></td>
-      <td><%= @requirement.state %></td>
-    </tr>
-  </table>
-
-<div style="padding: 100px 250px 10px;"></div>
-<div align="center", style="font-size: 30px">
-<p>Your project <%= @requirement.project_name %> is <%= @requirement.state %>
-
-</p>
-<button class="btn btn-primary" onclick="goBack()">Go Back</button>
+<div class="col-md-2"></div>
+<div class="col-md-8">
+  <h1>Project details</h1>
+  <%= form_for(@requirement, action: "show") do |f| %>
+    <div class="form-group">
+      <%= f.label(:state, "Project state", class: "control-label") %>
+      <% if @requirement.state == 'Waiting' %>
+        <h3><span class="glyphicon glyphicon-time"></span>This project is still waiting for accepted.</h3>
+      <% elsif @requirement.state == 'Accepted' %>
+        <h3><span class="glyphicon glyphicon-ok-circle"></span>This project was accepted.</h3>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <%= f.label(:project_name, "Project name", class: "control-label") %>
+      <%= f.text_field(:project_name, class: "form-control", readonly: "readonly") %>
+    </div>
+    <div class="form-group">
+      <%= f.label(:budget, "Project budget", class: "control-label") %>
+      <%= f.text_field(:budget, class: "form-control", readonly: "readonly") %>
+    </div>
+    <div class="form-group">
+      <%= f.label(:project_details, "Project details", class: "control-label") %>
+      <%= f.text_area(:project_details, size: "0x3", class: "form-control", readonly: "readonly") %>
+    </div>
+    <div class="form-group">
+      <%= f.label(:company_name, "Company name", class: "control-label") %>
+      <%= f.text_field(:company_name, class: "form-control", readonly: "readonly") %>
+    </div>
+    <div class="form-group">
+      <%= f.label(:email, "Email address", class: "control-label") %>
+      <%= f.text_field(:email, class: "form-control", readonly: "readonly") %>
+    </div>
+  <% end %>
 </div>
+<div class="col-md-2"></div>
