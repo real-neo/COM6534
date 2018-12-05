@@ -85,6 +85,7 @@
   <%= yield %>
 
   <footer class="container mt-5">
+    <hr>
     <div class="row">
       <div class="col-md-6" align="start">
         <h5>Contact</h5>
@@ -92,7 +93,7 @@
         <p><a href="mailto:info@epigenesys.org.uk">info@epigenesys.org.uk</a></p>
         <p>epiGenesys, Floor C, Cathedral Court<br>1 Vicar Lane, Sheffield, S1 2LT</p>
       </div>
-      <div class="col-md-6" align="right">
+      <div class="col-md-6 hidden-xs hidden-sm" align="right">
         <%= image_tag('/uos-logo.svg', height: '64', alt: 'UoS') %>
       </div>
     </div>
