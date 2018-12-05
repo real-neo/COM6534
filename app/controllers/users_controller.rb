@@ -1,51 +1,44 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :isAdmin
+  before_action :admin?
 
-  # GET /users
   def index
     @users = User.all
   end
 
-  # GET /users/1
   def show
     @users = User.find(params[:id])
   end
 
-  # GET /users/new
   def new
     @users = User.all
   end
 
-  # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
   end
 
-  # POST /users
   def create
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to @user, notice: 'Moduleleader was successfully created.'
+      redirect_to @user, notice: 'Module leader was successfully created.'
     else
       render :new
     end
   end
 
-  # PATCH/PUT /users/1
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: 'Moduleleader was successfully updated.'
+      redirect_to @user, notice: 'Module leader was successfully updated.'
     else
       render :edit
     end
   end
 
-  # DELETE /users/1
   def destroy
     @user.destroy
-    redirect_to users_url, notice: 'Moduleleader was successfully destroyed.'
+    redirect_to users_url, notice: 'Module leader was successfully destroyed.'
   end
 
   private

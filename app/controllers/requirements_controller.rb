@@ -78,7 +78,7 @@ class RequirementsController < ApplicationController
   end
 
   def search_criteria(query_string)
-    {id_cont: query_string}
+    { id_cont: query_string }
   end
 
   private
