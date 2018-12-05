@@ -20,6 +20,9 @@ class RequirementsController < ApplicationController
   def show
   end
 
+  def not_found
+  end
+
   def create
     @requirement = Requirement.new(requirement_params)
 
@@ -81,7 +84,11 @@ class RequirementsController < ApplicationController
   private
 
   def set_requirement
-    @requirement = Requirement.find(params[:id])
+    begin
+      @requirement = Requirement.find(params[:id])
+    rescue
+      redirect_to not_found_requirement_path
+    end
   end
 
   def requirement_params

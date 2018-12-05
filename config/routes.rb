@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     member do
       get :accept
       get :decline
+      get :not_found
     end
   end
   resources :users
