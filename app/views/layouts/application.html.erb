@@ -69,18 +69,20 @@
 </nav>
 
 <main role="main" class="container" style="padding-top: 65px">
-  <% if notice %>
-    <div class="alert alert-success fade in">
-      <a href="#" class="close" data-dismiss="alert">&times;</a>
-      <%= notice %>
-    </div>
-  <% end %>
-  <% if alert %>
-    <div class="alert alert-danger fade in">
-      <a href="#" class="close" data-dismiss="alert">&times;</a>
-      <%= alert %>
-    </div>
-  <% end %>
+  <div class="container">
+    <% if notice %>
+      <div class="alert alert-success fade in">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <%= notice %>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div class="alert alert-danger fade in">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <%= alert %>
+      </div>
+    <% end %>
+  </div>
 
   <%= yield %>
 
