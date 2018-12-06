@@ -64,7 +64,8 @@ class RequirementsController < ApplicationController
       @requirement.username = nil
       @requirement.save
 
-      # TODO destroy record
+      record = Record.find_by_project_id(@requirement.id)
+      record.destroy
       redirect_to @requirement, notice: 'Decline successfully.'
     end
   end
