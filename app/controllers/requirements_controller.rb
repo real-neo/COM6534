@@ -41,24 +41,32 @@ class RequirementsController < ApplicationController
   end
 
   def accept
-    @requirement.state = 'Accepted'
-    @requirement.username = current_user.username
-    @requirement.save
+    if @requirement.state == 'Accepted'
+      redirect_to @requirement, alert: 'This projected already has been accepted.'
+    else
+      @requirement.state = 'Accepted'
+      @requirement.username = current_user.username
+      @requirement.save
 
-    new_record = Record.new
-    new_record.username = current_user.username
-    new_record.project_id = @requirement.id
-    new_record.save
-    redirect_to @requirement, notice: 'Accept successfully.'
+      new_record = Record.new
+      new_record.username = current_user.username
+      new_record.project_id = @requirement.id
+      new_record.save
+      redirect_to @requirement, notice: 'Accept successfully.'
+    end
   end
 
   def decline
-    @requirement.state = 'Waiting'
-    @requirement.username = nil
-    @requirement.save
+    if @requirement.username != current_user.username
+      redirect_to @requirement, alert: 'Cannot decline this project.'
+    else
+      @requirement.state = 'Waiting'
+      @requirement.username = nil
+      @requirement.save
 
-    # TODO destroy record
-    redirect_to @requirement, notice: 'Decline successfully.'
+      # TODO destroy record
+      redirect_to @requirement, notice: 'Decline successfully.'
+    end
   end
 
   def destroy
