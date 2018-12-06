@@ -12,7 +12,7 @@
             <%= link_to("Details", f, class: "btn btn-default") %>
             <% if f.state == 'Waiting' %>
               <%= link_to('Accept', accept_requirement_path(f), class: "btn btn-default", data: {confirm: 'Are you sure?'}) %>
-            <% else %>
+            <% elsif f.username == current_user.username %>
               <%= link_to('Decline', decline_requirement_path(f), class: "btn btn-default", data: {confirm: 'Are you sure?'}) %>
             <% end %>
             <% if current_user.admin? %>
