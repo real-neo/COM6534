@@ -9,7 +9,7 @@ module FormsHelper
   def submit_button(text="Save", opts = {})
     size = opts.delete(:size) || 'md'
     icon = opts.delete(:icon) || 'check'
-    content_tag :button, opts.merge(type: :submit, class: "btn btn-#{size} btn-primary", data: { disable_with: disable_with_text(opts.delete(:feedback_text)) }) do
+    content_tag :button, opts.merge(type: :submit, class: "btn btn-#{size} btn-default", data: { disable_with: disable_with_text(opts.delete(:feedback_text)) }) do
       fa_icon icon, text: text
     end
   end
