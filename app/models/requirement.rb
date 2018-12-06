@@ -11,6 +11,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  state           :string           default("Waiting")
+#  username        :string
 #
 
 class Requirement < ApplicationRecord

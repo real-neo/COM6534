@@ -42,6 +42,7 @@ class RequirementsController < ApplicationController
 
   def accept
     @requirement.state = 'Accepted'
+    @requirement.username = current_user.username
     @requirement.save
 
     new_record = Record.new
@@ -53,6 +54,7 @@ class RequirementsController < ApplicationController
 
   def decline
     @requirement.state = 'Waiting'
+    @requirement.username = nil
     @requirement.save
 
     # TODO destroy record
@@ -81,7 +83,7 @@ class RequirementsController < ApplicationController
   end
 
   def search_criteria(query_string)
-    { id_cont: query_string }
+    {id_cont: query_string}
   end
 
   private

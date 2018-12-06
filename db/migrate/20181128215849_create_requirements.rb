@@ -7,6 +7,7 @@ class CreateRequirements < ActiveRecord::Migration[5.2]
       t.string :project_name
       t.string :project_details
       t.string :budget
+      t.string :username
 
       t.timestamps
     end
