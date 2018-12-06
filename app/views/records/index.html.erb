@@ -1,6 +1,6 @@
-<h3>All projects:</h3>
+<h3>All records:</h3>
 <div class="ui-card-wrap">
-  <% Requirement.where(id: @records.each(&:project_id)).each do |f| %>
+  <% @requirements.each do |f| %>
     <div class="card col-md-4">
       <div class="panel panel-default">
         <div class="panel-heading">
@@ -8,15 +8,9 @@
         </div>
         <div class="panel-body">
           <p><%= f.project_details %></p>
-          <%= link_to("Details", requirement_path(f), class: "btn btn-default") %>
-          <% if f.state == 'Waiting' %>
-            <%= link_to('Accept', accept_requirement_path(f), class: "btn btn-default", data: {confirm: 'Are you sure?'}) %>
-          <% else %>
-            <%= link_to('Decline', decline_requirement_path(f), class: "btn btn-default", data: {confirm: 'Are you sure?'}) %>
-          <% end %>
-          <% if current_user.admin? %>
-            <%= link_to 'Delete', f, method: :delete, class: "btn btn-default", data: {confirm: 'Are you sure?'} %>
-          <% end %>
+          <%= link_to("Details", f, class: "btn btn-default") %>
+          <% r = User.find_by_username(f.username) %>
+          <%= link_to("Accepted by #{r.givenname} #{r.sn}", r, class: "btn btn-default") %>
         </div>
       </div>
     </div>

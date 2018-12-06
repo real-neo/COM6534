@@ -1,10 +1,11 @@
 class RecordsController < ApplicationController
   before_action :authenticate_user!
+  before_action :admin?
   before_action :set_record, only: [:destroy]
 
   def index
-    # @records = Record.all
-    @records = Record.where(username: current_user.username)
+    @records = Record.all
+    @requirements = Requirement.where(id: @records.each(&:project_id))
   end
 
   def read_records
