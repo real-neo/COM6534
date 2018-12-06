@@ -10,7 +10,9 @@
     <th></th>
     <% if user_signed_in? %>
       <th></th>
-      <th></th>
+      <% if current_user.admin? %>
+        <th></th>
+      <% end %>
     <% end %>
   </tr>
   <% @requirements.each do |f| %>
@@ -28,7 +30,9 @@
         <% else %>
           <td><%= link_to 'Decline', decline_requirement_path(f), data: {confirm: 'Are you sure?'} %></td>
         <% end %>
-        <td><%= link_to 'Delete', f, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        <% if current_user.admin? %>
+          <td><%= link_to 'Delete', f, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        <% end %>
       <% end %>
     </tr>
   <% end %>
