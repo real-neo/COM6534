@@ -5,12 +5,10 @@ class RecordsController < ApplicationController
 
   def index
     @records = Record.all
-    @requirements = Requirement.where(id: @records.each(&:project_id))
   end
 
   def read_records
     @records = Record.where(username: current_user.username)
-    @requirements = Requirement.where(id: @records.each(&:project_id))
     render 'dashboard/index'
   end
 

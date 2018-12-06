@@ -1,7 +1,8 @@
 <h1>Hi, <%= current_user.givenname %></h1>
-<h3>These are your projects:</h3>
+<h3>These are your projects</h3>
 <div class="ui-card-wrap">
-  <% @requirements.each do |f| %>
+  <% @records.each do |r| %>
+    <% f = Requirement.find(r.project_id) %>
     <div class="card col-md-4">
       <div class="panel panel-default">
         <div class="panel-heading">
