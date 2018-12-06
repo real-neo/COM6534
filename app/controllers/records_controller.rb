@@ -4,7 +4,7 @@ class RecordsController < ApplicationController
 
   def index
     # @records = Record.all
-    @records = Record.where('username LIKE ?', "%#{current_user.username}%")
+    @records = Record.where(username: current_user.username)
   end
 
   def destroy

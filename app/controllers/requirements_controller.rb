@@ -6,7 +6,7 @@ class RequirementsController < ApplicationController
   def index
 
     @requirements = if params[:id]
-                      Requirement.where('id LIKE ?', "%#{params[:id]}%")
+                      Requirement.where(id: params[:id])
                     else
                       Requirement.all
                     end
