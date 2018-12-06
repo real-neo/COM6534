@@ -4,13 +4,16 @@ class RequirementsController < ApplicationController
   before_action :validate_search_key, only: [:search]
 
   def index
-
-    @requirements = if params[:id]
-                      Requirement.where(id: params[:id])
-                    else
-                      Requirement.all
-                    end
-
+    if params[:id]
+      @requirements = Requirement.where(id: params[:id])
+      if @requirements.empty?
+        redirect_to not_found_requirements_path
+      else
+        redirect_to @requirements.first
+      end
+    else
+      @requirements = Requirement.all
+    end
   end
 
   def new
