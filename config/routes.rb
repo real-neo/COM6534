@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     member do
       get :accept
       get :decline
+    end
+    collection do
       get :not_found
     end
   end

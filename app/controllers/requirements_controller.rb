@@ -87,7 +87,7 @@ class RequirementsController < ApplicationController
     begin
       @requirement = Requirement.find(params[:id])
     rescue
-      redirect_to not_found_requirement_path
+      redirect_to not_found_requirements_path
     end
   end
 
