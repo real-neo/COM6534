@@ -1,18 +1,15 @@
 <% # frozen_string_literal: true %>
-<div style="font-size: 40px">
-<%= simple_form_for(@user) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-  <%= @user.username %>
-</div>
-<div style="font-size: 20px">
-  <div style="padding: 150px 250px 10px;">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+  <h2><i class="fa fa-user-circle" style="font-size: 50px;"></i> <%= @user.givenname %> <%= @user.sn %></h2>
+  <%= simple_form_for(@user) do |f| %>
     <div class="form-inputs">
-      <%= f.input :admin %><%= f.association :mod %>
+      <%= f.input :admin, as: :radio_buttons, :label => "Set as administrator?" %>
+      <%= f.input :mod_id, as: :select, collection: Mod.all, input_html: {class: 'select2'}, include_blank: false %>
     </div>
     <div class="form-actions">
       <%= f.button :submit %>
     </div>
-    <% end %>
-  </div>
+  <% end %>
 </div>
+<div class="col-md-2"></div>
