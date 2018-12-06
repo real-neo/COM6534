@@ -7,6 +7,12 @@ class RecordsController < ApplicationController
     @records = Record.where(username: current_user.username)
   end
 
+  def read_records
+    @records = Record.where(username: current_user.username)
+    @requirements = Requirement.where(id: @records.each(&:project_id))
+    render 'dashboard/index'
+  end
+
   def destroy
     @record.destroy
   end

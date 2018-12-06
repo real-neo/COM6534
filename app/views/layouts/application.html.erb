@@ -57,7 +57,7 @@
             <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="glyphicon glyphicon-user"></span> <strong><%= current_user.email %></strong>
               <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><%= link_to("Dashboard", records_path) %></li>
+              <li><%= link_to("Dashboard", dashboard_path) %></li>
               <li class="divider"></li>
               <li><%= link_to("Logout", destroy_user_session_path, method: :delete) %></li>
             </ul>
