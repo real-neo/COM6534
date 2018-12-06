@@ -39,7 +39,7 @@ class ApplicationController < ActionController::Base
   private
 
   def admin?
-    unless current_user&.admin?
+    unless current_user.admin?
       redirect_to root_path, alert: 'You do not have permission.'
     end
   end
