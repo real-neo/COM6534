@@ -1,6 +1,6 @@
 class RecordsController < ApplicationController
   before_action :authenticate_user!
-  before_action :admin?
+  before_action :admin?, except: [:read_records]
   before_action :set_record, only: [:destroy]
 
   def index
