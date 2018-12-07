@@ -12,7 +12,7 @@ server fetch(:server), user: fetch(:user), roles: %w{web app db}
 namespace :deploy do
   task :seed do
     on primary :db do within current_path do with rails_env: fetch(:stage) do
-      execute :rake, 'db:drop db:create db:migrate'
+      execute :rake, 'db:seed'
     end end end
   end
 end
