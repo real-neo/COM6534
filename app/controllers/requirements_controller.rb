@@ -1,5 +1,6 @@
 class RequirementsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :new, :create, :show, :not_found]
+  before_action :check_leader, except: [:index, :new, :create, :show, :not_found]
   before_action :set_requirement, only: [:show, :accept, :decline, :destroy]
   before_action :validate_search_key, only: [:search]
 
@@ -96,6 +97,12 @@ class RequirementsController < ApplicationController
   end
 
   private
+
+  def check_leader
+    if current_user.mod_id.nil?
+      redirect_to root_path, alert: 'You are not module leader.'
+    end
+  end
 
   def set_requirement
     begin

@@ -1,4 +1,4 @@
-<% if user_signed_in? %>
+<% if user_signed_in? && current_user.mod_id!=nil%>
   <h1>All projects</h1>
   <div class="ui-card-wrap">
     <% @requirements.each do |f| %>
