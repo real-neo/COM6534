@@ -1,26 +1,34 @@
-<p id="notice">
-  <%= notice %>
-
-
-<table class="table table-striped table-bordered">
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>admin</th>
-    <th>mod</th>
-  </tr>
-
-
-    <tr>
-      <td><%= @users.username %></td>
-      <td><%= @users.email %></td>
-      <td><%= @users.admin %></td>
-      <td><%= @users.mod_id %></td>
-    </tr>
-
-
-  </table>
-<div align="center">
-  <%= link_to 'Edit', edit_user_path(@user) %>  <%= link_to 'Back', users_path %>
+<div class="col-md-2"></div>
+<div class="col-md-8">
+  <h1>Personal information</h1>
+  <i class="fa fa-user-circle" style="font-size: 50px;"></i>
+  <%= simple_form_for(@user, action: "show") do |f| %>
+    <div class="form-group">
+      <h3><%= @user.givenname %> <%= @user.sn %> <%= @user.admin ? '[admin]' : '' %></h3>
+    </div>
+    <div class="form-group">
+      <%= f.input(:mod_id, as: :select, collection: Mod.all, input_html: {class: 'select2'}, include_blank: false, :disabled => true, :label => "Module") %>
+    </div>
+    <div class="form-group">
+      <%= f.label(:email, "Email address", class: "control-label") %>
+      <%= f.text_field(:email, class: "form-control", readonly: "readonly") %>
+    </div>
+    <div class="form-group">
+      <%= f.label(:username, "CiCS username", class: "control-label") %>
+      <%= f.text_field(:username, class: "form-control", readonly: "readonly") %>
+    </div>
+    <div class="form-group">
+      <%= f.label(:created_at, "Join in time", class: "control-label") %>
+      <%= f.text_field(:created_at, class: "form-control", readonly: "readonly") %>
+    </div>
+    <div class="form-group">
+      <%= f.label(:current_sign_in_at, "Last sign in time", class: "control-label") %>
+      <%= f.text_field(:current_sign_in_at, class: "form-control", readonly: "readonly") %>
+    </div>
+    <div class="form-group">
+      <%= f.label(:current_sign_in_ip, "Last sign in IP", class: "control-label") %>
+      <%= f.text_field(:current_sign_in_ip, class: "form-control", readonly: "readonly") %>
+    </div>
+  <% end %>
 </div>
+<div class="col-md-2"></div>

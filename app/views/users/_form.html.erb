@@ -1,15 +1,11 @@
 <% # frozen_string_literal: true %>
-<div class="col-md-2"></div>
-<div class="col-md-8">
-  <h2><i class="fa fa-user-circle" style="font-size: 50px;"></i> <%= @user.givenname %> <%= @user.sn %></h2>
-  <%= simple_form_for(@user) do |f| %>
-    <div class="form-inputs">
-      <%= f.input :admin, as: :radio_buttons, :label => "Set as administrator?" %>
-      <%= f.input :mod_id, as: :select, collection: Mod.all, input_html: {class: 'select2'}, include_blank: false %>
-    </div>
-    <div class="form-actions">
-      <%= f.button :submit %>
-    </div>
-  <% end %>
-</div>
-<div class="col-md-2"></div>
+<h2><i class="fa fa-user-circle" style="font-size: 50px;"></i> <%= @user.givenname %> <%= @user.sn %></h2>
+<%= simple_form_for(@user) do |f| %>
+  <div class="form-inputs">
+    <%= f.input(:admin, as: :radio_buttons, :label => "Set as administrator?") %>
+    <%= f.input(:mod_id, as: :select, collection: Mod.all, input_html: {class: 'select2'}, include_blank: false) %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
