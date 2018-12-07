@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @users = User.all
+    @users = User.where.not(mod_id: nil)
   end
 
   def show
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    @users = User.all
+    @users = User.where(mod_id: nil)
   end
 
   def edit
