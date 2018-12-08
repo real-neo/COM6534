@@ -33,7 +33,7 @@ class RequirementsController < ApplicationController
     if @requirement.save
       redirect_to @requirement, notice: 'Upload project successfully!'
     else
-      flash.now[:alert] = 'Failed to save'
+      flash.now[:alert] = 'Please fill all inputs.'
       render :new
     end
   end

@@ -15,4 +15,10 @@
 #
 
 class Requirement < ApplicationRecord
+  validates :company_name, presence: true
+  validates :company_name, presence: true
+  validates :email, presence: true
+  validates :project_name, presence: true
+  validates :project_details, presence: true
+  validates :budget, presence: true
 end
