@@ -31,6 +31,7 @@ class RequirementsController < ApplicationController
     @requirement = Requirement.new(requirement_params)
 
     if @requirement.save
+      ProjectMailer.new_project_email(@requirement).deliver_later
       redirect_to @requirement, notice: 'Upload project successfully!'
     else
       flash.now[:alert] = 'Please fill all inputs.'
