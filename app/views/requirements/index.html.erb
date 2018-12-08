@@ -1,27 +1,33 @@
-<% if user_signed_in? && current_user.mod_id!=nil%>
-  <h1>All projects</h1>
-  <div class="ui-card-wrap">
-    <% @requirements.each do |f| %>
-      <div class="card col-md-4">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h1 class="panel-title"><%= f.project_name %></h1>
-          </div>
-          <div class="panel-body">
-            <p><%= f.project_details %></p>
-            <%= link_to("Details", f, class: "btn btn-default") %>
-            <% if f.state == 'Waiting' %>
-              <%= link_to('Accept', accept_requirement_path(f), class: "btn btn-default", data: {confirm: 'Are you sure?'}) %>
-              <%= link_to('Suggest', choose_suggest_requirements_path(req_id: f.id), method: :post, class: "btn btn-default") %>
-            <% elsif f.username == current_user.username %>
-              <%= link_to('Decline', decline_requirement_path(f), class: "btn btn-default", data: {confirm: 'Are you sure?'}) %>
-            <% end %>
-            <% if current_user.admin? %>
-              <%= link_to 'Delete', f, method: :delete, class: "btn btn-default", data: {confirm: 'Are you sure?'} %>
-            <% end %>
+<% if user_signed_in? %>
+  <% if current_user.mod_id == nil %>
+    <div class="alert alert-danger fade in text-center">
+      <p style="font-size: large">You are not module leader.<br>Can not browser all projects.</p>
+    </div>
+  <% else %>
+    <h1>All projects</h1>
+    <div class="ui-card-wrap">
+      <% @requirements.each do |f| %>
+        <div class="card col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h1 class="panel-title"><%= f.project_name %></h1>
+            </div>
+            <div class="panel-body">
+              <p><%= f.project_details %></p>
+              <%= link_to("Details", f, class: "btn btn-default") %>
+              <% if f.state == 'Waiting' %>
+                <%= link_to('Accept', accept_requirement_path(f), class: "btn btn-default", data: {confirm: 'Are you sure?'}) %>
+                <%= link_to('Suggest', choose_suggest_requirements_path(req_id: f.id), method: :post, class: "btn btn-default") %>
+              <% elsif f.username == current_user.username %>
+                <%= link_to('Decline', decline_requirement_path(f), class: "btn btn-default", data: {confirm: 'Are you sure?'}) %>
+              <% end %>
+              <% if current_user.admin? %>
+                <%= link_to 'Delete', f, method: :delete, class: "btn btn-default", data: {confirm: 'Are you sure?'} %>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>
