@@ -4,10 +4,20 @@ Rails.application.configure do
   config.action_mailer.asset_host          = "https://app_url"
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: 'mailhost.shef.ac.uk',
-    port:    25,
-    domain:  'app_url',
-    enable_starttls_auto: false
+      # address: 'mailhost.shef.ac.uk',
+      # port:    25,
+      # domain:  'app_url',
+      # enable_starttls_auto: false
+
+      ####################
+
+      address: 'smtp.gmail.com',
+      port: 587,
+      domain: 'gmail.com',
+      user_name: 'genesys.team10@gmail.com',
+      password: 'vqftitmbonejeajl',
+      authentication: 'plain',
+      enable_starttls_auto: true
   }
 
   # Code is not reloaded between requests.
