@@ -47,10 +47,10 @@ ActiveRecord::Schema.define(version: 2018_12_08_011329) do
     t.string "project_name"
     t.string "project_details"
     t.string "budget"
+    t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "state", default: "Waiting"
-    t.string "username"
   end
 
   create_table "sessions", force: :cascade do |t|
