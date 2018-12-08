@@ -1,0 +1,16 @@
+<h1>Select one module to suggest</h1>
+<div class="ui-card-wrap">
+  <% @mods.each do |f| %>
+    <div class="card col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h1 class="panel-title"><%= f.name %></h1>
+        </div>
+        <div class="panel-body">
+          <p>Code: <%= f.code %></p>
+          <%= link_to("Suggest", suggest_requirements_path(req_id: @requirement.id, mod_id: f.id), method: :post, class: "btn btn-default", data: {confirm: 'Are you sure?'}) %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

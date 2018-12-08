@@ -14,8 +14,11 @@ Rails.application.routes.draw do
     member do
       get :accept
       get :decline
+
     end
     collection do
+      post :choose_suggest
+      post :suggest
       get :not_found
     end
   end

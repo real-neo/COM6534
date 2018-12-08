@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+
+<body>
+<h1>You have new suggestion.</h1>
+<hr>
+<p><%= @user.givenname %> suggest you this project:<br><%= @requirement.project_name %></p>
+<hr>
+<p>This project details:</p>
+<p>Project name:<br><%= @requirement.project_name %></p>
+<p>Project budget:<br><%= @requirement.budget %></p>
+<p>Project details:<br><%= @requirement.project_details %></p>
+<p>Company name:<br><%= @requirement.company_name %></p>
+<p>Email address:<br><%= @requirement.email %></p>
+<hr>
+<p>Best regards<br>epiGenesys Team</p>
+<hr>
+<h4>Contact</h4>
+<p>
+  <a href="tel:+441142221888">+44 (0)114 222 1888</a><br>
+  <a href="mailto:info@epigenesys.org.uk">info@epigenesys.org.uk</a><br>
+  epiGenesys, Floor C, Cathedral Court<br>1 Vicar Lane, Sheffield, S1 2LT<br><br>
+</p>
+</body>
+</html>

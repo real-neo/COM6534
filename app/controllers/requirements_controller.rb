@@ -60,6 +60,20 @@ class RequirementsController < ApplicationController
     end
   end
 
+  def choose_suggest
+    @mods = Mod.all
+    @requirement = Requirement.find(params[:req_id])
+  end
+
+  def suggest
+    mod = Mod.find(params[:mod_id])
+    req = Requirement.find(params[:req_id])
+    mod.users.each do |u|
+      ProjectMailer.suggest_project_email(req, current_user, u.email).deliver_later
+    end
+    redirect_to req, notice: 'Suggest successfully.'
+  end
+
   def decline
     if @requirement.username != current_user.username
       redirect_to @requirement, alert: 'Cannot decline this project.'
