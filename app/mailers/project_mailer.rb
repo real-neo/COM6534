@@ -6,4 +6,11 @@ class ProjectMailer < ApplicationMailer
     mail(subject: '[epiGenesys]Confirmation of your project',
          to: req.email, cc: 'genesys-team10@shefcompsci.org.uk')
   end
+
+  def accept_project_email(req, user)
+    @requirement = req
+    @user = user
+    mail(subject: '[epiGenesys]Your project has been accepted',
+         to: req.email, cc: 'genesys-team10@shefcompsci.org.uk')
+  end
 end

@@ -48,12 +48,14 @@ class RequirementsController < ApplicationController
     else
       @requirement.state = 'Accepted'
       @requirement.username = current_user.username
-      @requirement.save
+      if @requirement.save
 
-      new_record = Record.new
-      new_record.username = current_user.username
-      new_record.project_id = @requirement.id
-      new_record.save
+        new_record = Record.new
+        new_record.username = current_user.username
+        new_record.project_id = @requirement.id
+        new_record.save
+        ProjectMailer.accept_project_email(@requirement, current_user).deliver_later
+      end
       redirect_to @requirement, notice: 'Accept successfully.'
     end
   end
