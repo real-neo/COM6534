@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'rails_helper'
 describe 'Manage projects' do
   specify 'I can upload projects' do
   visit '/'
@@ -9,7 +9,7 @@ describe 'Manage projects' do
   fill_in 'Company name', with: 'shef'
   fill_in 'Your email', with: '2286593908@qq.com'
   click_button 'Upload'
-  expect(page).to have_content 'xxxxxx'
+  expect(page).to have_content 'Upload project successfully!'
   end
 end
 
@@ -18,7 +18,7 @@ describe 'Track the project' do
     visit '/'
     fill_in 'Project track ID', with: '1'
     click_button 'Track'
-    expect(page).to have_content 'xxxxxx'
-    within
+    expect(page).to have_content 'Sorry, we cannot found this project.
+Please check track ID.'
   end
 end

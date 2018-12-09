@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'rails_helper'
 
 describe 'Managing projects' do
   specify 'I can accept a project' do
@@ -20,9 +20,18 @@ describe 'Managing projects' do
     click_button 'details'
     expect(page).to have_content 'Description'
   end
+
   describe 'Managing module'
   specify 'I can add a new module' do
     module 1 = FactoryBot.create :module, name: 'module 1'
+    visit '/'
+    click_button 'new module'
+    expect(page).to have_content 'New'
+  end
+
+  describe 'Login'
+  specify 'I can login' do
+    user = FactoryBot.create (:, name: 'module 1'
     visit '/'
     click_button 'new module'
     expect(page).to have_content 'New'

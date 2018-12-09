@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'rails_helper'
 
 describe 'Managing projects' do
   specify 'I can accept a project' do
