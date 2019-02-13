@@ -11,4 +11,4 @@ Before you commit any files, please do below things:
 在你提交任何改动之前，请务必做了以下的事情：
 
 1. `git config --global user.name "Your Name"`
-2. `git config --global user.name "Your Sheffield Email"`
+2. `git config --global user.email "Your Sheffield Email"`
